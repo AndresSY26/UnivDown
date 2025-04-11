@@ -317,3 +317,33 @@ a {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 }
+
+
+#media-list .development-notice {
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  background-color: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  margin-top: 2em;
+  grid-column: 1 / -1;
+}
+
+/* Sobrescrituras específicas para tema oscuro */
+body.dark-mode #media-list .development-notice {
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Reafirmamos los estilos del contenedor padre (si no están ya) */
+#media-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+    padding: 0;
+}
