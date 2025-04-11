@@ -1,0 +1,227 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Poppins:wght@400;500&display=swap");
+:root {
+  --header-height: 3.5rem;
+  --first-color: #8400ff;
+  --second-color: #00b7ff;
+  --gradient-color: linear-gradient(
+    75deg,
+    var(--second-color) 20%,
+    var(--first-color) 66%
+  );
+  --gradient-color2: linear-gradient(
+    75deg,
+    var(--first-color) 20%,
+    var(--second-color) 66%
+  );
+  --first-color-light: hsl(260, 88%, 92%);
+  --first-color-dark: hsl(0, 0%, 0%);
+  --title-color: hsl(260, 80%, 18%);
+  --text-color: hsl(260, 24%, 32%);
+  --text-color-light: hsl(260, 16%, 65%);
+  --white-color: hsl(0, 0%, 100%);
+  --body-color: hsl(215, 55%, 96%);
+  --container-color: hsl(0, 0%, 100%);
+  --select-page: hsl(276, 92%, 54%);
+  --check--icon: var(--first-color);
+  --header--scroll: rgba(255, 255, 255, 0.4);
+  --menu-bg-color: rgba(255, 255, 255, 0.4);
+  --select-text: #8400ff;
+  --select-background: #e0e0e0;
+
+  --body-font: "Poppins", sans-serif;
+  --second-font: "Lora", serif;
+  --biggest-font-size: 1.75rem;
+  --bigger-font-size: 2rem;
+  --big-font-size: 1.75rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --logo-font-size: 1.9rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+  --font-regular: 400;
+  --font-medium: 500;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 1152px) {
+  :root {
+    --biggest-font-size: 3rem;
+    --bigger-font-size: 4rem;
+    --big-font-size: 3.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+body.dark-mode {
+  --title-color: hsl(260, 64%, 85%);
+  --text-color: hsl(260, 20%, 65%);
+  --body-color: hsl(0, 0%, 8%);
+  --container-color: hsl(256, 12%, 18%);
+  --select-page: hsl(197, 100%, 50%);
+  --check--icon: var(--second-color);
+  --header--scroll: rgba(25, 25, 25, 0.4);
+  --menu-bg-color: rgba(25, 25, 25, 0.4);
+  --select-text: #00b7ff;
+  --select-background: #242424;
+}
+
+.terms-page-container {
+    max-width: 900px; /* Ancho máximo del contenido */
+    margin: 2rem auto; /* Centrado y con margen superior/inferior */
+    padding: 2rem 1.5rem; /* Relleno interior */
+    background-color: var(--container-color); /* Color de fondo del tema */
+    border-radius: 8px; /* Bordes redondeados opcionales */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra sutil */
+    color: var(--text-color); /* Color de texto del tema */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para cambio de tema */
+
+    /* Animación de entrada similar a otras páginas */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 0.6s 0.1s ease-out forwards;
+}
+
+/* Definición de la animación si no está globalmente */
+@keyframes fadeInSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.terms-page-container .terms-title {
+    text-align: center;
+    color: var(--title-color);
+    font-size: var(--bigger-font-size);
+    margin-bottom: 1rem;
+    font-family: var(--second-font);
+    font-weight: 500;
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.terms-page-container .terms-intro {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: var(--normal-font-size);
+    color: var(--text-color-light); /* Un poco más suave */
+    line-height: 1.6;
+}
+
+.terms-page-container .terms-section {
+    margin-bottom: 2rem; /* Espacio entre secciones */
+}
+
+.terms-page-container .terms-section h2 {
+    color: var(--title-color);
+    font-size: var(--h2-font-size); /* Usar variable de tamaño */
+    margin-top: 2.5rem; /* Espacio antes del subtítulo */
+    margin-bottom: 1rem; /* Espacio después del subtítulo */
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--text-color-light); /* Línea separadora sutil */
+    font-weight: var(--font-medium);
+}
+
+.terms-page-container .terms-section p {
+    line-height: 1.7; /* Interlineado para mejor legibilidad */
+    margin-bottom: 1rem; /* Espacio entre párrafos */
+}
+
+.terms-page-container .terms-list {
+    list-style: disc; /* Viñetas estándar */
+    margin-left: 1.5rem; /* Indentación de la lista */
+    margin-bottom: 1rem;
+    padding-left: 1rem; /* Espacio después de la viñeta */
+}
+
+.terms-page-container .terms-list li {
+    margin-bottom: 0.6rem; /* Espacio entre elementos de la lista */
+    line-height: 1.6;
+}
+
+.terms-page-container a {
+    color: var(--first-color); /* Color primario del tema */
+    text-decoration: none;
+    font-weight: var(--font-medium);
+    transition: color 0.3s ease;
+}
+
+.terms-page-container a:hover {
+    color: var(--second-color); /* Color secundario del tema al pasar el ratón */
+    text-decoration: underline;
+}
+
+/* Ajustes para modo oscuro si son necesarios para los enlaces */
+body.dark-mode .terms-page-container a {
+    color: var(--second-color); /* Usar el color secundario en modo oscuro */
+}
+
+body.dark-mode .terms-page-container a:hover {
+    color: var(--first-color); /* Usar el color primario en modo oscuro al pasar el ratón */
+}
+
+
+.terms-page-container .terms-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--text-color-light);
+    text-align: center;
+    font-size: var(--small-font-size);
+    color: var(--text-color-light);
+}
+.terms-page-container .terms-footer p {
+    margin-bottom: 0.5rem;
+}
+
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .terms-page-container {
+        margin: 1rem auto; /* Reducir margen en pantallas pequeñas */
+        padding: 1.5rem 1rem; /* Reducir relleno */
+    }
+
+    .terms-page-container .terms-title {
+        font-size: var(--big-font-size); /* Ajustar tamaño si es necesario */
+        margin-bottom: 1rem;
+    }
+     .terms-page-container .terms-intro {
+        margin-bottom: 1.5rem;
+     }
+
+    .terms-page-container .terms-section h2 {
+        font-size: var(--h1-font-size); /* Ajustar tamaño si es necesario */
+         margin-top: 2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .terms-page-container .terms-list {
+         margin-left: 1rem;
+         padding-left: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .terms-page-container {
+        padding: 1rem 0.8rem; /* Aún menos relleno en pantallas muy pequeñas */
+    }
+     .terms-page-container .terms-title {
+        font-size: 1.6rem; /* Más pequeño */
+     }
+    .terms-page-container .terms-section h2 {
+        font-size: var(--h2-font-size);
+    }
+
+}

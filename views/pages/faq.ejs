@@ -1,0 +1,125 @@
+<!-- views/pages/faq.ejs -->
+<!-- Enlace al CSS específico de esta página -->
+<link rel="stylesheet" type="text/css" href="/css/pages/faq.css" />
+
+<div class="faq-page-container">
+  <h1 class="faq-title" data-i18n="faq_page_title">Frequently Asked Questions</h1>
+  <p class="faq-intro" data-i18n="faq_intro_text">
+    Find answers to common questions about UnivDown, its features, and how to use it responsibly.
+  </p>
+
+  <div class="faq-list">
+    <!-- FAQ Item 1 -->
+    <div class="faq-item">
+      <h3 class="faq-question-header">
+        <button class="faq-question-button" aria-expanded="false" aria-controls="faq-answer-1" data-i18n="faq_q1_title">
+          Is UnivDown free to use?
+          <i class="ri-add-line faq-icon-plus"></i>
+          <i class="ri-subtract-line faq-icon-minus"></i>
+        </button>
+      </h3>
+      <div id="faq-answer-1" class="faq-answer" role="region" aria-hidden="true">
+        <p data-i18n="faq_a1_text">
+          Yes, UnivDown is currently free to use. We aim to keep the core functionality accessible to everyone. We may display minimal ads to support the server costs and development.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ Item 2 -->
+    <div class="faq-item">
+       <h3 class="faq-question-header">
+        <button class="faq-question-button" aria-expanded="false" aria-controls="faq-answer-2" data-i18n="faq_q2_title">
+          Is it safe to use UnivDown?
+          <i class="ri-add-line faq-icon-plus"></i>
+          <i class="ri-subtract-line faq-icon-minus"></i>
+        </button>
+      </h3>
+      <div id="faq-answer-2" class="faq-answer" role="region" aria-hidden="true">
+        <p data-i18n="faq_a2_text">
+          We prioritize your security. Our website uses standard security practices (like HTTPS). We don't ask for your login details for any platform. However, like any online tool, always ensure your device has up-to-date antivirus software. We do not host or store downloaded content.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ Item 3 -->
+    <div class="faq-item">
+       <h3 class="faq-question-header">
+        <button class="faq-question-button" aria-expanded="false" aria-controls="faq-answer-3" data-i18n="faq_q3_title">
+          What platforms does UnivDown support?
+          <i class="ri-add-line faq-icon-plus"></i>
+          <i class="ri-subtract-line faq-icon-minus"></i>
+        </button>
+      </h3>
+      <div id="faq-answer-3" class="faq-answer" role="region" aria-hidden="true">
+        <p data-i18n="faq_a3_text">
+          Currently, UnivDown supports downloading videos, audio, and images from YouTube, TikTok, Instagram, and Erome. We are always looking to expand our support based on user demand and technical feasibility.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ Item 4 -->
+     <div class="faq-item">
+        <h3 class="faq-question-header">
+         <button class="faq-question-button" aria-expanded="false" aria-controls="faq-answer-4" data-i18n="faq_q4_title">
+           Why can't I download a specific video?
+           <i class="ri-add-line faq-icon-plus"></i>
+           <i class="ri-subtract-line faq-icon-minus"></i>
+         </button>
+       </h3>
+       <div id="faq-answer-4" class="faq-answer" role="region" aria-hidden="true">
+         <p data-i18n="faq_a4_text_1">
+           There could be several reasons:
+         </p>
+         <ul>
+           <li data-i18n="faq_a4_reason_private">The video might be private, age-restricted, or deleted.</li>
+           <li data-i18n="faq_a4_reason_platform">The platform might have recently changed its structure, requiring an update on our end.</li>
+           <li data-i18n="faq_a4_reason_link">The link you provided might be incorrect or incomplete. Please double-check the URL.</li>
+           <li data-i18n="faq_a4_reason_server">Temporary server issues on our side or on the platform's side. Please try again later.</li>
+         </ul>
+         <p data-i18n="faq_a4_contact">If the problem persists for a public video, feel free to <a href="/contact">contact us</a> with the link.</p>
+       </div>
+     </div>
+
+    <!-- FAQ Item 5 -->
+    <div class="faq-item">
+        <h3 class="faq-question-header">
+         <button class="faq-question-button" aria-expanded="false" aria-controls="faq-answer-5" data-i18n="faq_q5_title">
+           Is downloading content legal?
+           <i class="ri-add-line faq-icon-plus"></i>
+           <i class="ri-subtract-line faq-icon-minus"></i>
+         </button>
+       </h3>
+       <div id="faq-answer-5" class="faq-answer" role="region" aria-hidden="true">
+         <p data-i18n="faq_a5_text">
+           Downloading copyrighted material without permission from the copyright holder may infringe on their rights and violate the terms of service of the source platform. UnivDown is intended for downloading publicly available content for personal, offline use or content for which you have explicit permission to download (e.g., your own uploads). Please respect copyright laws and use our service responsibly. Refer to our <a href="/terms-use">Terms of Use</a> and <a href="/disclaimer">Disclaimer</a> for more information.
+         </p>
+       </div>
+     </div>
+
+     <!-- FAQ Item 6 (Ejemplo Adicional) -->
+     <div class="faq-item">
+        <h3 class="faq-question-header">
+         <button class="faq-question-button" aria-expanded="false" aria-controls="faq-answer-6" data-i18n="faq_q6_title">
+            Do downloaded TikTok videos have a watermark?
+           <i class="ri-add-line faq-icon-plus"></i>
+           <i class="ri-subtract-line faq-icon-minus"></i>
+         </button>
+       </h3>
+       <div id="faq-answer-6" class="faq-answer" role="region" aria-hidden="true">
+         <p data-i18n="faq_a6_text">
+             We strive to provide TikTok video downloads without the platform's added watermark, allowing for cleaner viewing and reuse (always remember to credit the original creator if you reshare!).
+         </p>
+       </div>
+     </div>
+
+    <!-- Añade más items aquí -->
+
+  </div><!-- /.faq-list -->
+
+  <div class="faq-contact-link">
+    <p data-i18n="faq_still_have_questions">
+      Still have questions? Don't hesitate to <a href="/contact">Contact Us</a>.
+    </p>
+  </div>
+
+</div>

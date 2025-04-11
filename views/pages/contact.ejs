@@ -1,0 +1,54 @@
+<!-- views/pages/contact.ejs -->
+<!-- Enlace al CSS específico de esta página -->
+<link rel="stylesheet" type="text/css" href="/css/pages/contact.css" />
+
+<div class="contact-page-container">
+  <h1 class="contact-title" data-i18n="contact_page_title">Contact us</h1>
+  <p class="contact-intro" data-i18n="contact_intro_text">
+    Do you have questions, suggestions, comments, or need to report a problem? We'd love to hear from you. Please fill out the form below and we'll get back to you as soon as possible.
+  </p>
+
+  <!-- Formulario de Contacto -->
+  <form id="contact-form" class="contact-form" action="" method="POST">
+
+    <!-- Campo Nombre -->
+    <div class="input-container animated-underline form-group">
+      <input type="text" id="contact-name" class="input-field" name="name" required aria-required="true" placeholder=" ">
+      <label for="contact-name" class="input-label" data-i18n="contact_label_name">Name</label>
+      <span class="input-underline"></span>
+    </div>
+
+    <!-- Campo Correo Electrónico -->
+    <div class="input-container animated-underline form-group">
+      <input type="email" id="contact-email" class="input-field" name="email" required aria-required="true" placeholder=" ">
+      <label for="contact-email" class="input-label" data-i18n="contact_label_email">Email</label>
+      <span class="input-underline"></span>
+    </div>
+
+    <!-- Campo Asunto -->
+    <div class="input-container animated-underline form-group">
+      <input type="text" id="contact-subject" class="input-field" name="subject" required aria-required="true" placeholder=" ">
+      <label for="contact-subject" class="input-label" data-i18n="contact_label_subject">Affair</label>
+      <span class="input-underline"></span>
+    </div>
+
+    <!-- Campo Mensaje (Textarea - Adaptado) -->
+    <div class="input-container animated-underline form-group">
+      <textarea id="contact-message" class="input-field" name="message" rows="3" required aria-required="true" placeholder=" "></textarea>
+      <label for="contact-message" class="input-label" data-i18n="contact_label_message">Message</label>
+    </div>
+
+    <!-- Área para mostrar mensajes de estado (sin cambios) -->
+    <div id="contact-form-status" class="form-status" role="status" aria-live="polite"></div>
+    <button type="submit" class="submit-button" data-i18n="contact_send_button">Send Message</button>
+  </form>
+
+  <!-- Opcional: Información de contacto alternativa (sin cambios) -->
+  <div class="alternative-contact">
+      <p data-i18n="contact_alternative_intro">Or if you prefer, you can contact us by:</p>
+      <ul>
+          <li data-i18n="contact_alt_email">Email: <a href="mailto:downuniv@gmail.com">downuniv@gmail.com</a></li>
+      </ul>
+  </div>
+
+</div>
