@@ -76,183 +76,214 @@ body.dark-mode {
 
 /*=============== Disclaimer Page Styles ===============*/
 .disclaimer-page-container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 2rem 1.5rem;
-  background-color: var(--container-color);
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInSlideUpDisclaimer 0.6s 0.1s ease-out forwards;
-}
-
-/* Animación de Entrada */
-@keyframes fadeInSlideUpDisclaimer {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem 1.5rem;
+    background-color: var(--container-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUpDisclaimer 0.6s 0.1s ease-out forwards;
   }
-}
-
-/* Título Principal */
-.disclaimer-page-container .disclaimer-title {
-  text-align: center;
-  color: var(--title-color);
-  font-size: var(--bigger-font-size);
-  margin-bottom: 1rem;
-  font-family: var(--second-font);
-  font-weight: var(--font-medium);
-  background: var(--gradient-color);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Párrafo Introductorio */
-.disclaimer-page-container .disclaimer-intro {
-  text-align: center;
-  margin-bottom: 2.5rem;
-  font-size: var(--normal-font-size);
-  color: var(--text-color-light);
-  line-height: 1.6;
-}
-
-/* Estilo de Secciones */
-.disclaimer-page-container .disclaimer-section {
-  margin-bottom: 2rem;
-}
-
-/* Subtítulos de Sección */
-.disclaimer-page-container .disclaimer-section h2 {
-  color: var(--title-color);
-  font-size: var(--h2-font-size);
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--text-color-light);
-  font-weight: var(--font-medium);
-}
-
-/* Párrafos Dentro de Secciones */
-.disclaimer-page-container .disclaimer-section p {
-  line-height: 1.7;
-  margin-bottom: 1rem;
-}
-
-/* Estilos para la lista de Limitación de Responsabilidad - NUEVO */
-.disclaimer-page-container .liability-list {
-  list-style-type: none;
-  padding-left: 1.5rem;
-  margin-top: 0.8rem;
-  margin-bottom: 0.8rem;
-}
-
-/* Estilos para los elementos de la lista de Limitación de Responsabilidad - NUEVO */
-.disclaimer-page-container .liability-list li {
-  margin-bottom: 0.6rem;
-  line-height: 1.7;
-  color: var(--text-color);
-}
-
-/* Ajuste opcional para los párrafos intro/outro de la lista - NUEVO */
-.disclaimer-page-container p[data-i18n="disclaimer_s3_intro"],
-.disclaimer-page-container p[data-i18n="disclaimer_s3_outro"] {
-  margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-/* Estilo General de Enlaces */
-.disclaimer-page-container a {
-  color: var(--first-color);
-  text-decoration: none;
-  font-weight: var(--font-medium);
-  transition: color 0.3s ease, text-decoration 0.3s ease;
-}
-
-.disclaimer-page-container a:hover {
-  color: var(--second-color);
-  text-decoration: underline;
-}
-
-/* Enlaces en Modo Oscuro */
-body.dark-mode .disclaimer-page-container a {
-  color: var(--second-color);
-}
-
-body.dark-mode .disclaimer-page-container a:hover {
-  color: var(--first-color);
-  text-decoration: underline;
-}
-
-/* Pie de Página del Disclaimer */
-.disclaimer-page-container .disclaimer-footer {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--text-color-light);
-  text-align: center;
-  font-size: var(--small-font-size);
-  color: var(--text-color-light);
-}
-.disclaimer-page-container .disclaimer-footer p {
-  margin-bottom: 0.5rem;
-  line-height: 1.6;
-}
-
-/* ----- Responsive Adjustments ----- */
-@media screen and (max-width: 768px) {
-  .disclaimer-page-container {
-    margin: 1.5rem auto;
-    padding: 1.5rem 1rem;
+  
+  @keyframes fadeInSlideUpDisclaimer {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-
+  
   .disclaimer-page-container .disclaimer-title {
-    font-size: var(--big-font-size);
+    text-align: center;
+    color: var(--title-color);
+    font-size: var(--bigger-font-size);
     margin-bottom: 1rem;
+    font-family: var(--second-font);
+    font-weight: var(--font-medium);
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
+  
   .disclaimer-page-container .disclaimer-intro {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: var(--normal-font-size);
+    color: var(--text-color-light);
+    line-height: 1.6;
+  }
+  
+  .disclaimer-page-container .disclaimer-section {
     margin-bottom: 2rem;
   }
-
+  
   .disclaimer-page-container .disclaimer-section h2 {
-    font-size: var(--h1-font-size);
-    margin-top: 2rem;
-    margin-bottom: 0.8rem;
-  }
-  /* Ajuste de indentación de la lista en pantallas medianas */
-  .disclaimer-page-container .liability-list {
-    padding-left: 1.2rem;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .disclaimer-page-container {
-    margin: 1rem auto;
-    padding: 1.2rem 0.8rem;
-    border-radius: 6px;
-  }
-  .disclaimer-page-container .disclaimer-title {
-    font-size: 1.8rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .disclaimer-page-container .disclaimer-intro {
-    margin-bottom: 1.5rem;
-  }
-
-  .disclaimer-page-container .disclaimer-section h2 {
+    color: var(--title-color);
     font-size: var(--h2-font-size);
-    margin-top: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid hsla(0, 0%, 50%, 0.3); /* Línea divisoria más suave */
+    font-weight: var(--font-medium);
   }
-
-  /* Ajuste de indentación de la lista en pantallas pequeñas */
+  
+  .disclaimer-page-container .disclaimer-section p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  
+  /* --- Estilos para la lista de Limitación de Responsabilidad --- */
   .disclaimer-page-container .liability-list {
-    padding-left: 1rem;
+    list-style-type: none; /* Asegura no tener bullets por defecto */
+    /* Ajusta el padding izquierdo de la lista UL si prefieres manejar la indentación principal aquí */
+    /* Por ejemplo: padding-left: 1rem; */
+    /* Si no, mantenlo en 0 y maneja todo con el padding del li o el margen del span */
+    padding-left: 0;
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
   }
-
+  
+  .disclaimer-page-container .liability-list li {
+    margin-bottom: 0.6rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    /* Añadimos un padding a la izquierda del LI para asegurar espacio general,
+       incluso si el marcador se posicionara absolutamente (aunque no lo haremos aquí) */
+    padding-left: 1em; /* Ajusta esto si es necesario */
+    position: relative; /* Necesario para algunos trucos de alineación si se usaran */
+  }
+  
+  /* --- Estilos específicos para el marcador (i), (ii), etc. --- */
+  .disclaimer-page-container .liability-list .liability-marker {
+    display: inline-block;  /* Permite controlar width y margin */
+    width: 2.5em;           /* Ancho fijo para que el texto siguiente se alinee bien */
+    margin-right: 0.5em;    /* Espacio entre el marcador y el texto */
+    text-align: left;       /* Asegura que el marcador esté alineado a la izquierda dentro de su espacio */
+    /* === Estilos visuales del marcador === */
+    font-weight: var(--font-medium); /* Peso medio para destacar un poco */
+    font-size: 1.1em;          /* Ligeramente más grande */
+    color: var(--first-color); /* Color principal (violeta) */
+    position: relative;        /* Ajuste fino de posición si es necesario */
+    /* top: -0.05em; */       /* Ejemplo: ligero ajuste vertical si la línea base no coincide */
+  }
+  
+  /* Ajustes para Modo Oscuro del Marcador */
+  body.dark-mode .disclaimer-page-container .liability-list .liability-marker {
+      color: var(--second-color); /* Color secundario (azul) en modo oscuro */
+  }
+  
+  /* --- Fin estilos lista de responsabilidad --- */
+  
+  /* Párrafos intro/outro de la sección de responsabilidad */
+  .disclaimer-page-container p[data-i18n="disclaimer_s3_intro"],
+  .disclaimer-page-container p[data-i18n="disclaimer_s3_outro"] {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  
+  /* Estilo General de Enlaces */
+  .disclaimer-page-container a {
+    color: var(--first-color);
+    text-decoration: none;
+    font-weight: var(--font-medium);
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+  }
+  
+  .disclaimer-page-container a:hover {
+    color: var(--second-color);
+    text-decoration: underline;
+  }
+  
+  /* Enlaces en Modo Oscuro */
+  body.dark-mode .disclaimer-page-container a {
+    color: var(--second-color);
+  }
+  
+  body.dark-mode .disclaimer-page-container a:hover {
+    color: var(--first-color);
+    text-decoration: underline;
+  }
+  
+  /* Pie de Página del Disclaimer */
   .disclaimer-page-container .disclaimer-footer {
-    font-size: var(--smaller-font-size);
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid hsla(0, 0%, 50%, 0.3); /* Línea divisoria más suave */
+    text-align: center;
+    font-size: var(--small-font-size);
+    color: var(--text-color-light);
   }
-}
+  .disclaimer-page-container .disclaimer-footer p {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+  
+  /* ----- Responsive Adjustments ----- */
+  @media screen and (max-width: 768px) {
+    .disclaimer-page-container {
+      margin: 1.5rem auto;
+      padding: 1.5rem 1rem;
+    }
+  
+    .disclaimer-page-container .disclaimer-title {
+      font-size: var(--big-font-size);
+      margin-bottom: 1rem;
+    }
+     .disclaimer-page-container .disclaimer-intro {
+        margin-bottom: 2rem;
+     }
+  
+    .disclaimer-page-container .disclaimer-section h2 {
+      font-size: var(--h1-font-size);
+       margin-top: 2rem;
+      margin-bottom: 0.8rem;
+    }
+    /* Ajuste responsivo para el ancho del marcador si es necesario */
+    .disclaimer-page-container .liability-list .liability-marker {
+        width: 2.8em; /* Puede necesitar un poco más de espacio relativo */
+    }
+    /* Ajuste de padding del item para compensar */
+     .disclaimer-page-container .liability-list li {
+         padding-left: 0.8em;
+     }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .disclaimer-page-container {
+      margin: 1rem auto;
+      padding: 1.2rem 0.8rem;
+      border-radius: 6px;
+    }
+     .disclaimer-page-container .disclaimer-title {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+     }
+  
+     .disclaimer-page-container .disclaimer-intro {
+        margin-bottom: 1.5rem;
+     }
+  
+    .disclaimer-page-container .disclaimer-section h2 {
+      font-size: var(--h2-font-size);
+      margin-top: 1.5rem;
+    }
+    /* Ajuste responsivo para el marcador en pantallas pequeñas */
+    .disclaimer-page-container .liability-list .liability-marker {
+        font-size: 1.05em; /* Quizás un poco más pequeño */
+        width: 2.5em;      /* Ajusta el ancho */
+        margin-right: 0.4em; /* Menos espacio */
+    }
+     /* Ajuste de padding del item */
+     .disclaimer-page-container .liability-list li {
+         padding-left: 0.5em;
+     }
+  
+     .disclaimer-page-container .disclaimer-footer {
+          font-size: var(--smaller-font-size);
+      }
+  }
