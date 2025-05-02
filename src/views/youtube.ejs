@@ -1,0 +1,138 @@
+<!-- views/youtube.ejs -->
+<!-- ========= CSS ========-->
+<link rel="stylesheet" type="text/css" href="/css/youtube.css" />
+
+<div class="container">
+  <div id="input-container">
+    <div class="input-wrapper">
+      <input type="text" id="url-input-youtube" placeholder=" " required />
+      <label for="url-input" data-i18n="url_label">YouTube URL</label>
+    </div>
+    <button class="GetVideos" id="GetVideosYoutube">Get videos</button>
+  </div>
+
+  <!-- ===== NUEVO: Sección de Información Inicial ===== -->
+  <div id="youtube-info-section" class="info-section">
+    <h2 data-i18n="youtube_info_title">
+      Easily Download YouTube Videos and Audio
+    </h2>
+    <p data-i18n="youtube_info_intro">
+      Welcome to our tool for downloading YouTube content. Here you can save
+      your favorite videos or extract just the audio easily and quickly.
+    </p>
+    <strong data-i18n="youtube_info_how_to_title">How does it work?</strong>
+    <ol>
+      <li data-i18n="youtube_info_step1">
+        <strong>Paste the URL:</strong> Copy the full web address of the YouTube
+        video you want to download (for example,
+        <code>https://www.youtube.com/watch?v=fNMwVfYasjE</code>) and paste it
+        into the field above.
+      </li>
+      <li data-i18n="youtube_info_step2">
+        <strong>Get the options:</strong> Click the "Get videos" button. Our
+        system will analyze the link.
+      </li>
+      <li data-i18n="youtube_info_step3">
+        <strong>Select and download:</strong> In seconds, the available options
+        will appear. You can choose between different qualities to download the
+        full video (usually in MP4 format) or just the audio track (commonly in
+        MP3 or M4A). Simply select the option you prefer and press the
+        corresponding download button.
+      </li>
+    </ol>
+
+    <!-- Modified Paragraph with class 'important-note' and icon -->
+    <p data-i18n="youtube_info_note" class="important-note">
+      <i class="ri-information-line"></i> <!-- Icon remains -->
+      <span><!-- Text within span is translated -->
+        Remember to respect copyright and YouTube's terms of service when
+        downloading content. Use this tool responsibly.
+      </span>
+    </p>
+    <!-- End Modified Paragraph -->
+
+    <p data-i18n="youtube_info_enjoy">
+      Start now and enjoy your multimedia content without needing an internet
+      connection!
+    </p>
+  </div>
+
+  <div id="error-container" class="error-message"></div>
+  <div id="media-list"></div>
+</div>
+
+<!-- ========= Modal para Imágenes ========= -->
+<div id="imageModal" class="modal">
+  <span class="modal-close-button" id="closeModal">×</span>
+  <div class="modal-content">
+    <img id="modalImage" src="" alt="Enlarged Erome Image" />
+  </div>
+</div>
+
+<!-- ========= Modal para Videos ========= -->
+<div id="videoModal" class="modal">
+  <span class="modal-close-button" id="closeVideoModal">×</span>
+  <div class="modal-content video-modal-content" id="videoPlayerContainer">
+    <video id="modalVideo" preload="metadata">
+      <!-- Quitamos 'controls', preload="metadata" es bueno -->
+      Your browser does not support the video tag in the modal.
+    </video>
+
+    <!-- Contenedor para los controles personalizados -->
+    <div class="custom-video-controls" id="customControls">
+      <button
+        class="control-button play-pause-button"
+        id="playPauseBtn"
+        aria-label="Play/Pause"
+      >
+        <i class="ri-play-fill"></i>
+      </button>
+      <div class="progress-bar-container">
+        <input
+          type="range"
+          id="progressBar"
+          class="progress-bar"
+          value="0"
+          step="0.1"
+          min="0"
+        />
+      </div>
+      <div class="time-display">
+        <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+      </div>
+
+      <!-- Contenedor de Volumen Modificado -->
+      <div class="volume-container" id="volumeContainer">
+        <!-- La barra ahora está dentro de su propio contenedor para posicionamiento -->
+        <div class="volume-slider-popup" id="volumeSliderContainer">
+          <input
+            type="range"
+            id="volumeBar"
+            class="volume-bar"
+            value="1"
+            step="0.05"
+            min="0"
+            max="1"
+          />
+          <!-- orient="vertical" es semántico pero CSS lo hará visual -->
+        </div>
+        <button
+          class="control-button volume-button"
+          id="volumeBtn"
+          aria-label="Mute/Unmute"
+        >
+          <i class="ri-volume-up-line"></i>
+        </button>
+      </div>
+      <!-- Fin Contenedor de Volumen Modificado -->
+
+      <button
+        class="control-button fullscreen-button"
+        id="fullscreenBtn"
+        aria-label="Toggle Fullscreen"
+      >
+        <i class="ri-fullscreen-line"></i>
+      </button>
+    </div>
+  </div>
+</div>

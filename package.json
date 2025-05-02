@@ -1,0 +1,38 @@
+{
+  "name": "univdown-node",
+  "version": "1.0.0",
+  "description": "UnivDown application with Node.js",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "univdown",
+    "erome",
+    "downloader",
+    "node.js",
+    "express"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "@distube/ytdl-core": "^4.16.9",
+    "@tobyg74/tiktok-api-dl": "^1.2.8",
+    "cheerio": "^1.0.0",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "i18next": "^24.2.3",
+    "i18next-http-backend": "^3.0.2",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^6.10.0",
+    "rahad-all-downloader": "^2.1.18",
+    "rahad-media-downloader": "^2.1.14",
+    "stream": "^0.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

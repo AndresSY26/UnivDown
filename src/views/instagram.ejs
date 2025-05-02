@@ -1,0 +1,104 @@
+<!-- views/instagram.ejs -->
+<!-- ========= CSS ======== -->
+<link rel="stylesheet" type="text/css" href="/css/instagram.css" />
+
+<div class="container">
+    <div id="input-container">
+        <div class="input-wrapper">
+            <input type="text" id="url-input-instagram" placeholder=" " required />
+            <label for="url-input" data-i18n="url_label">Instagram URL</label>
+        </div>
+        <button class="GetVideos" id="GetVideosInstagram" data-i18n="GetVideosInstagram">
+            Get videos
+        </button>
+    </div>
+
+    <!-- ===== Sección de Información Inicial para Instagram (Texto traducido) ===== -->
+    <div id="instagram-info-section" class="info-section">
+        <h2 data-i18n="instagram_info_title">
+          Download Instagram Content Easily
+        </h2>
+        <p data-i18n="instagram_info_intro">
+          Welcome! Here you can download Instagram Reels, Videos, and Photos directly
+          to your device.
+        </p>
+        <strong data-i18n="instagram_info_how_to_title">How does it work?</strong>
+        <ol>
+          <li data-i18n="instagram_info_step1">
+            <strong>Paste the URL:</strong> Copy the link (URL) of the Instagram
+            Post, Reel, or Video you want to download (e.g.,
+            <code>https://www.instagram.com/p/C-_T9vQpzJe/</code> or <code>/reel/abc/C-_T9vQpzJe/</code>)
+            and paste it into the field above.
+          </li>
+          <li data-i18n="instagram_info_step2">
+            <strong>Get the Media:</strong> Click the "Get videos" button. Our
+            system will analyze the link. (Currently under development)
+          </li>
+          <li data-i18n="instagram_info_step3">
+            <strong>Select & Download:</strong> The available media (videos or photos)
+            will appear. Click the download button next to the item you want to save.
+          </li>
+        </ol>
+  
+        <!-- Nota de Responsabilidad Adaptada -->
+        <p data-i18n="instagram_info_note" class="important-note">
+          <i class="ri-information-line"></i> <!-- Icono -->
+          <span>
+              Remember to respect copyright and Instagram's terms of service. Downloaded
+              content should be for personal use only. Be responsible.
+          </span>
+        </p>
+  
+        <p data-i18n="instagram_info_enjoy">
+            Start downloading your favorite Instagram moments!
+        </p>
+      </div>
+
+    <div id="error-container" class="error-message"></div>
+    <div id="media-list"></div>
+</div>
+
+<!-- ========= Modal para Imágenes ========= -->
+<div id="imageModal" class="modal">
+    <span class="modal-close-button" id="closeModal">×</span>
+    <div class="modal-content">
+        <img id="modalImage" src="" alt="Enlarged Erome Image">
+    </div>
+</div>
+
+<!-- ========= Modal para Videos ========= -->
+<div id="videoModal" class="modal">
+    <span class="modal-close-button" id="closeVideoModal">×</span>
+    <div class="modal-content video-modal-content" id="videoPlayerContainer">
+        <video id="modalVideo" preload="metadata">
+            Your browser does not support the video tag in the modal.
+        </video>
+
+        <!-- Contenedor para los controles personalizados -->
+        <div class="custom-video-controls" id="customControls">
+            <button class="control-button play-pause-button" id="playPauseBtn" aria-label="Play/Pause">
+                <i class="ri-play-fill"></i>
+            </button>
+            <div class="progress-bar-container">
+                <input type="range" id="progressBar" class="progress-bar" value="0" step="0.1" min="0">
+            </div>
+            <div class="time-display">
+                <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+            </div>
+
+            <!-- Contenedor de Volumen Modificado -->
+            <div class="volume-container" id="volumeContainer">
+                <div class="volume-slider-popup" id="volumeSliderContainer">
+                    <input type="range" id="volumeBar" class="volume-bar" value="1" step="0.05" min="0" max="1">
+                </div>
+                <button class="control-button volume-button" id="volumeBtn" aria-label="Mute/Unmute">
+                    <i class="ri-volume-up-line"></i>
+                </button>
+            </div>
+
+            <button class="control-button fullscreen-button" id="fullscreenBtn" aria-label="Toggle Fullscreen">
+                <i class="ri-fullscreen-line"></i>
+            </button>
+        </div>
+    </div>
+</div>

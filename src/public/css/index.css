@@ -1,0 +1,745 @@
+/* ---  Previous CSS rules (body, general selectors )--- */
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Poppins:wght@400;500&display=swap");
+:root {
+  --header-height: 3.5rem;
+  --first-color: #8400ff;
+  --second-color: #00b7ff;
+  --gradient-color: linear-gradient(
+    75deg,
+    var(--second-color) 20%,
+    var(--first-color) 66%
+  );
+  --gradient-color2: linear-gradient(
+    75deg,
+    var(--first-color) 20%,
+    var(--second-color) 66%
+  );
+  --first-color-light: hsl(260, 88%, 92%);
+  --first-color-dark: hsl(0, 0%, 0%);
+  --title-color: hsl(260, 80%, 18%);
+  --text-color: hsl(260, 24%, 32%);
+  --text-color-light: hsl(260, 16%, 65%);
+  --white-color: hsl(0, 0%, 100%);
+  --body-color: hsl(215, 55%, 96%);
+  --container-color: hsl(0, 0%, 100%);
+  --select-page: hsl(276, 92%, 54%);
+  --check--icon: var(--first-color);
+  --header--scroll: rgba(255, 255, 255, 0.4);
+  --menu-bg-color: rgba(255, 255, 255, 0.4);
+  --select-text: #8400ff;
+  --select-background: #e0e0e0;
+
+  --body-font: "Poppins", sans-serif;
+  --second-font: "Lora", serif;
+  --biggest-font-size: 1.75rem;
+  --bigger-font-size: 2rem;
+  --big-font-size: 1.75rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --logo-font-size: 1.9rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+  --font-regular: 400;
+  --font-medium: 500;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 1152px) {
+  :root {
+    --biggest-font-size: 3rem;
+    --bigger-font-size: 4rem;
+    --big-font-size: 3.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+body.dark-mode {
+  --title-color: hsl(260, 64%, 85%);
+  --text-color: hsl(260, 20%, 65%);
+  --body-color: hsl(0, 0%, 8%);
+  --container-color: hsl(256, 12%, 18%);
+  --select-page: hsl(197, 100%, 50%);
+  --check--icon: var(--second-color);
+  --header--scroll: rgba(25, 25, 25, 0.4);
+  --menu-bg-color: rgba(25, 25, 25, 0.4);
+  --select-text: #00b7ff;
+  --select-background: #242424;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: var(--body-font);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  margin: 0;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+#content {
+  flex-grow: 1;
+}
+
+/* Opcional pero recomendado: Evita que header y footer se encojan si el contenido es enorme */
+#header, #footer {
+  flex-shrink: 0;
+}
+
+#footer {
+   margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Estilo para el texto seleccionado (Navegadores modernos y WebKit) */
+::selection {
+  background-color: var(--select-background);
+  color: var(--select-text);
+  text-shadow: none;
+}
+
+/* Estilo para el texto seleccionado (Firefox - versiones más antiguas) */
+::-moz-selection {
+  background-color: var(--select-background);
+  color: var(--select-text);
+  text-shadow: none;
+}
+
+#theme-toggle {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 24px;
+  color: var(--title-color);
+}
+
+#theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+#theme-toggle i {
+  transition: transform 0.5s ease;
+}
+
+.dark-mode #theme-toggle i {
+  transform: rotate(360deg);
+}
+
+#theme-toggle:focus {
+  outline: none;
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    75deg,
+    var(--second-color) 20%,
+    var(--first-color) 66%
+  );
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    75deg,
+    var(--first-color) 20%,
+    var(--second-color) 66%
+  );
+}
+
+#header {
+  background-color: var(--container-color);
+  color: var(--title-color);
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-fixed);
+  border-bottom: none;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+#header.scrolled {
+  background-color: var(--header--scroll);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 969px;
+  margin: 0 auto;
+  padding: 0 20px;
+  gap: 2rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-img {
+  width: 50px;
+  height: auto;
+  display: block;
+}
+
+#close-menu {
+  display: none;
+}
+.project-name {
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-medium);
+  margin: 0;
+  flex-shrink: 0;
+  background-image: var(--gradient-color);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  text-decoration: none;
+}
+
+#menu-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--title-color);
+  transition: color 0.3s ease;
+  display: none;
+  padding: 0;
+  line-height: 1;
+}
+
+#menu-toggle:focus {
+  outline: none;
+}
+
+#navigation-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+  gap: 1rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+}
+.navigation-groups {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.social-links {
+  display: flex;
+  gap: 10px;
+  margin-right: auto;
+}
+
+.social-links a {
+  margin: 0 10px;
+  color: var(--text-color-light);
+  font-size: 24px;
+  transition: color 0.3s;
+  display: inline-block;
+  line-height: 1;
+}
+
+.social-links a:hover {
+  color: var(--first-color);
+}
+/* ---  ACTIVE GRADIENT ICON --- */
+
+.social-links a i.active {
+  /* Apply to the ICON (i) */
+  background-image: var(--gradient-color);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+#controls-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#theme-toggle-container {
+  position: relative;
+}
+
+#theme-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--container-color);
+  border: 1px solid var(--text-color-light);
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  min-width: 120px;
+  display: none;
+  z-index: 1001;
+  padding: 5px 0;
+  margin-top: 5px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#theme-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#theme-dropdown li {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: var(--text-color); /* Color de texto adaptable */
+  font-size: var(--small-font-size); /* Tamaño de fuente */
+  white-space: nowrap; /* Evitar que el texto se rompa en dos líneas */
+}
+
+#theme-dropdown li:hover {
+  /* Usaremos colores primarios para el hover, adaptados al modo */
+  background-color: hsla(
+    var(--hue, 260),
+    88%,
+    92%,
+    0.5
+  ); /* Adaptación de first-color-light */
+}
+
+body.dark-mode #theme-dropdown li:hover {
+  background-color: hsla(
+    var(--hue, 260),
+    100%,
+    50%,
+    0.3
+  ); /* Algo más sutil en dark */
+  color: var(--white-color);
+}
+
+/* Clase para mostrar el dropdown */
+#theme-dropdown.open {
+  display: block;
+}
+
+/* --- Asegúrate que el botón tenga un estilo base --- */
+#theme-toggle {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0; /* Ajusta si es necesario */
+  font-size: 24px; /* Ajusta si es necesario */
+  color: var(--title-color); /* Color adaptable */
+  line-height: 1;
+}
+#theme-toggle:focus {
+  outline: none;
+}
+#theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+#language-select-container {
+  position: relative;
+}
+
+#language-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--title-color);
+  transition: color 0.3s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+#language-button:focus {
+  outline: none;
+}
+
+#language-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--container-color);
+  border: 1px solid var(--text-color-light);
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  min-width: 150px;
+  display: none;
+  z-index: 1001;
+  padding: 5px 0;
+}
+
+#language-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#language-dropdown li {
+  padding: 8px 12px;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: background-color 0.2s;
+}
+
+#language-dropdown li:hover {
+  /* Usaremos colores primarios para el hover, adaptados al modo */
+  background-color: hsla(
+    var(--hue, 260),
+    88%,
+    92%,
+    0.5
+  ); /* Adaptación de first-color-light */
+}
+
+body.dark-mode #language-dropdown li:hover {
+  background-color: hsla(
+    var(--hue, 260),
+    100%,
+    50%,
+    0.3
+  ); /* Algo más sutil en dark */
+  color: var(--white-color);
+}
+
+#language-dropdown.open {
+  display: block;
+}
+
+#theme-dropdown::before,
+#language-dropdown::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  bottom: 100%;
+  right: 15px;
+  transform: translateX(50%);
+  border-width: 0 9px 9px 9px;
+  border-color: transparent transparent var(--text-color-light) transparent;
+  z-index: 1000;
+}
+
+/* Triángulo del Fondo (encima) */
+#theme-dropdown::after,
+#language-dropdown::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  bottom: 100%;
+  right: 15px;
+  transform: translateX(50%);
+  border-width: 0 8px 8px 8px;
+  border-color: transparent transparent var(--container-color) transparent;
+  margin-bottom: -1px;
+  z-index: 1001;
+}
+
+.container {
+  max-width: 969px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#media-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.media-item {
+  background-color: var(--white-color);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease;
+}
+
+.media-item video,
+.media-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  flex-grow: 1;
+}
+
+.media-item .download-container {
+  padding: 10px;
+  text-align: center;
+}
+
+.media-item .download-container button {
+  background-color: var(--first-color);
+  display: block;
+  padding: 10px;
+  color: var(--white-color);
+  text-align: center;
+  text-decoration: none;
+  font-weight: var(--font-medium);
+  border-radius: 49px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+}
+
+.media-item .download-container button:hover {
+  background-color: #6a0dad;
+}
+
+/* =============== SCROLL TO TOP BUTTON =============== */
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--first-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 50%;
+  width: 39px;
+  height: 39px;
+  padding: 0;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out, background-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#scrollToTopBtn:hover {
+  background-color: var(--second-color);
+  transform: translateY(15px) scale(1.05);
+}
+
+/* Clase para mostrar el botón */
+#scrollToTopBtn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    justify-content: space-between;
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  #navigation-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    background-color: var(--menu-bg-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    display: none;
+    gap: 2rem;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    padding: 2rem 0;
+  }
+
+  #navigation-menu.open {
+    display: flex;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  #navigation-menu.menu-transition {
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  }
+
+  #menu-toggle {
+    display: block;
+  }
+  .navigation-groups {
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+  }
+  .social-links,
+  #controls-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .social-links a,
+  #controls-container button {
+    width: max-content;
+    margin: 0 auto;
+  }
+
+  .logo-container {
+    order: -1;
+    margin-right: 0;
+    justify-content: flex-start;
+    width: auto;
+    margin-bottom: 0;
+  }
+
+  .project-name {
+    margin: 0;
+  }
+
+  #media-list {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  #close-menu {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--white-color);
+    z-index: 1001;
+  }
+
+  #close-menu:focus {
+    outline: none;
+  }
+
+  #header {
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  #navigation-menu.open #theme-dropdown,
+  #navigation-menu.open #language-dropdown {
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%);
+    margin-right: 10px;
+    margin-top: 0;
+    display: none;
+    z-index: 1010;
+  }
+
+  #navigation-menu.open #theme-dropdown.open,
+  #navigation-menu.open #language-dropdown.open {
+    display: block;
+  }
+
+  #navigation-menu.open #theme-toggle-container,
+  #navigation-menu.open #language-select-container {
+    position: relative;
+    width: max-content;
+    margin: 0 auto;
+  }
+
+  #navigation-menu.open #theme-dropdown::before,
+  #navigation-menu.open #language-dropdown::before,
+  #navigation-menu.open #theme-dropdown::after,
+  #navigation-menu.open #language-dropdown::after {
+     bottom: auto;
+     right: auto;
+     top: 50%;
+     left: 100%;
+     transform: translateY(-50%);
+  }
+
+  /* Ajuste específico para Triángulo del Borde en móvil */
+  #navigation-menu.open #theme-dropdown::before,
+  #navigation-menu.open #language-dropdown::before {
+     border-width: 9px 0 9px 9px;
+     border-color: transparent transparent transparent var(--text-color-light);
+     margin-bottom: 0;
+     margin-left: 1px;
+  }
+
+  /* Ajuste específico para Triángulo del Fondo en móvil */
+  #navigation-menu.open #theme-dropdown::after,
+  #navigation-menu.open #language-dropdown::after {
+    border-width: 8px 0 8px 8px;
+    border-color: transparent transparent transparent var(--container-color);
+    margin-bottom: 0;
+    margin-left: 0px;
+  }
+
+  #scrollToTopBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  #media-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .header-content {
+    gap: 1rem;
+  }
+}

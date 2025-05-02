@@ -1,0 +1,487 @@
+/* public/css/erome.css */
+
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Poppins:wght@400;500&display=swap");
+
+/* =============== VARIABLES CSS ============== =*/
+/* Asegúrate que estas variables estén definidas (global o aquí) */
+:root {
+  --first-color: #8400ff;
+  --second-color: #00b7ff;
+  --gradient-color: linear-gradient(
+    75deg,
+    var(--second-color) 20%,
+    var(--first-color) 66%
+  );
+  --gradient-color2: linear-gradient(
+    75deg,
+    var(--first-color) 20%,
+    var(--second-color) 66%
+  );
+  --title-color: hsl(260, 80%, 18%);
+  --text-color: hsl(260, 24%, 32%);
+  --text-color-light: hsl(260, 16%, 65%);
+  --white-color: hsl(0, 0%, 100%);
+  --body-color: hsl(215, 55%, 96%);
+  --container-color: hsl(0, 0%, 100%);
+  --input-border-bottom: 2px solid var(--text-color-light);
+  --input-bg: transparent;
+  --button-bg: var(--gradient-color);
+  --button-color: var(--white-color);
+  --button-hover-bg: var(--gradient-color2);
+  --label-color: var(--text-color-light);
+  --label-active-color: var(--first-color);
+  --label-font-size: var(--small-font-size);
+  --label-top-position: -1.5rem;
+  --button-padding: 0.75rem 1.75rem;
+  --body-font: "Poppins", sans-serif;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --font-medium: 500;
+  /* ... Variables Nota Importante (Claro) ... */
+  --note-bg-light: hsl(50, 100%, 95%);
+  --note-border-light: hsl(45, 90%, 70%);
+  --note-icon-light: hsl(45, 70%, 45%);
+  --note-text-light: hsl(45, 30%, 30%);
+}
+
+body.dark-mode {
+  /* ... Variables Oscuras: --title-color, --text-color, etc ... */
+  --title-color: hsl(260, 64%, 85%);
+  --text-color: hsl(260, 20%, 65%);
+  --body-color: hsl(0, 0%, 8%);
+  --container-color: hsl(256, 12%, 18%);
+  --input-border-bottom: 2px solid var(--text-color);
+  --label-color: var(--text-color);
+  /* ... Variables Nota Importante (Oscuro) ... */
+  --note-bg-dark: hsla(48, 40%, 18%, 0.7);
+  --note-border-dark: hsl(48, 60%, 50%);
+  --note-icon-dark: hsl(48, 80%, 65%);
+  --note-text-dark: hsl(48, 80%, 85%);
+}
+
+/* ================================================ */
+/* ============= ESTILOS BASE Y COMUNES ============= */
+/* ================================================ */
+a {
+  text-decoration: none;
+}
+.container {
+  max-width: 969px;
+  margin: 0 auto;
+  padding: 1rem 1rem 3rem 1rem;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+.ri-loader-4-line.ri-spin {
+  animation: ri-spin 1s infinite linear;
+}
+@keyframes ri-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+/* ================================================ */
+/* ========== ESTILOS PÁGINA EROME ================ */
+/* ================================================ */
+
+/* --- Input y Botón (usando IDs genéricos) --- */
+#input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+  width: 100%;
+  max-width: 609px;
+  margin: 0 auto 2rem auto;
+  padding: 0;
+}
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+#url-input {
+  width: 100%;
+  padding: 1rem 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: var(--input-border-bottom);
+  border-radius: 0;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  outline: none;
+  background-image: var(--gradient-color);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 0% 2px;
+  transition: background-size 0.3s ease, border-color 0.3s ease;
+}
+#url-input:focus {
+  border-bottom-color: var(--first-color);
+  background-size: 100% 2px;
+}
+#url-input::placeholder {
+  color: transparent;
+}
+/* Label Flotante (con for="url-input") */
+.input-wrapper label[for="url-input"] {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  color: var(--label-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+#url-input:focus + label[for="url-input"],
+#url-input:not(:placeholder-shown) + label[for="url-input"] {
+  font-size: var(--label-font-size);
+  transform: translateY(var(--label-top-position));
+  color: var(--label-active-color);
+}
+#url-input.error-input {
+  border-bottom-color: hsl(0, 100%, 50%);
+  background-image: linear-gradient(
+    75deg,
+    hsl(0, 100%, 70%) 20%,
+    hsl(0, 100%, 50%) 66%
+  );
+  background-size: 100% 2px;
+}
+#url-input.error-input + label[for="url-input"] {
+  color: hsl(0, 100%, 50%);
+}
+
+/* Botón Get Visuals (con ID genérico GetVideos) */
+.GetVideos#GetVideos {
+  padding: var(--button-padding);
+  width: 100%;
+  border: none;
+  border-radius: 50rem;
+  background: var(--button-bg);
+  color: var(--button-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: background 0.4s ease, transform 0.2s ease, box-shadow 0.3s ease,
+    opacity 0.3s ease;
+  white-space: nowrap;
+}
+.GetVideos#GetVideos:not(:disabled):hover {
+  background: var(--button-hover-bg);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.03);
+}
+.GetVideos#GetVideos:not(:disabled):active {
+  transform: scale(1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.GetVideos#GetVideos:disabled {
+  background: var(--button-bg);
+  opacity: 0.6;
+  cursor: not-allowed;
+  color: var(--button-color);
+}
+
+/* --- Contenedor de Errores --- */
+.error-message {
+  margin-top: 1rem;
+  display: none;
+  text-align: center;
+  padding: 1.5rem;
+  font-weight: var(--font-medium);
+  font-size: var(--h3-font-size);
+  background: linear-gradient(
+    90deg,
+    hsl(0, 100%, 50%),
+    hsl(0, 82%, 67%),
+    hsl(340, 88%, 61%),
+    hsl(0, 80%, 65%),
+    hsl(0, 100%, 50%)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: animatedErrorGradient 4s linear infinite;
+}
+.error-message.visible {
+  display: block;
+}
+/* No necesitamos .info-message aquí por ahora, showError se usa */
+@keyframes animatedErrorGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* --- Sección de Información Erome --- */
+#erome-info-section {
+  max-width: 800px;
+  margin: 2.5rem auto;
+  padding: 1.8rem 2rem;
+  background-color: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  text-align: left;
+  color: var(--text-color);
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s linear 0.5s,
+    max-height 0.5s ease-out, margin 0.5s ease-out, padding 0.5s ease-out,
+    border-width 0.5s ease-out;
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  overflow: hidden;
+  max-height: 1000px;
+}
+body.dark-mode #erome-info-section {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+#erome-info-section h2 {
+  font-size: var(--h2-font-size);
+  color: var(--title-color);
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+#erome-info-section p {
+  font-size: var(--normal-font-size);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+#erome-info-section p:not(:last-child):not(.important-note) {
+  margin-bottom: 0.8rem;
+}
+#erome-info-section strong {
+  display: block;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: var(--font-medium);
+  font-size: var(--h3-font-size);
+}
+#erome-info-section ol {
+  list-style: decimal inside;
+  padding-left: 0;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+#erome-info-section li {
+  font-size: var(--normal-font-size);
+  line-height: 1.7;
+  margin-bottom: 0.8rem;
+}
+#erome-info-section li strong {
+  display: inline;
+  margin: 0;
+  font-size: inherit;
+  font-weight: var(--font-medium);
+}
+#erome-info-section code {
+  background-color: rgba(0, 0, 0, 0.08);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--text-color);
+  word-break: break-all;
+}
+body.dark-mode #erome-info-section code {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--text-color);
+}
+#erome-info-section .important-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 1.2rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--note-border-light);
+  border-left-width: 5px;
+  border-left-color: var(--note-border-light);
+  background-color: var(--note-bg-light);
+  color: var(--note-text-light);
+  line-height: 1.65;
+  margin-left: 0;
+  margin-right: 0;
+}
+#erome-info-section .important-note i {
+  font-size: 1.4em;
+  color: var(--note-icon-light);
+  margin-top: 0.05em;
+  line-height: 1;
+  flex-shrink: 0;
+}
+body.dark-mode #erome-info-section .important-note {
+  background-color: var(--note-bg-dark);
+  border-color: var(--note-border-dark);
+  border-left-color: var(--note-border-dark);
+  color: var(--note-text-dark);
+}
+body.dark-mode #erome-info-section .important-note i {
+  color: var(--note-icon-dark);
+}
+#erome-info-section.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+  visibility: hidden;
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s,
+    max-height 0.5s ease-in, margin 0.5s ease-in, padding 0.5s ease-in,
+    border-width 0.5s ease-in;
+  max-height: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-width: 0;
+}
+
+/* --- Contenedor de Resultados Erome --- */
+#media-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+/* --- Tarjeta Resultado Erome --- */
+.media-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: var(--container-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.media-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+body.dark-mode .media-item {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.media-item img,
+.media-item video {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background-color: #111;
+  cursor: pointer;
+}
+.media-item video {
+  cursor: default;
+}
+.media-item .video-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+  opacity: 0.8;
+  z-index: 2;
+}
+.media-item:hover .video-play-icon {
+  transform: translate(-50%, -50%) scale(1.1);
+  color: rgba(255, 255, 255, 1);
+  opacity: 1;
+}
+
+/* --- Botón Descarga (Genérico .Download) --- */
+.Download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  background-color: var(--first-color);
+  color: var(--white-color);
+  border-radius: 2.29rem;
+  text-align: center;
+  font-size: var(--small-font-size);
+  transition: background-color 0.3s, transform 0.1s ease, opacity 0.3s ease;
+  margin: 0.8rem auto;
+  width: fit-content;
+  border: none;
+  font-family: var(--body-font);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.Download:not(:disabled):hover {
+  background-color: var(--second-color);
+  transform: translateY(-1px);
+}
+.Download:not(:disabled):active {
+  transform: scale(0.98);
+}
+.Download:disabled {
+  background-color: var(--first-color);
+  opacity: 0.6;
+  cursor: not-allowed;
+  color: var(--white-color);
+}
+.Download i {
+  font-size: 1.1em;
+  vertical-align: middle;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 400px) {
+  .container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  #erome-info-section {
+    padding: 1rem 1rem;
+  }
+  #media-list {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  #input-container {
+    flex-direction: row;
+    align-items: center;
+  }
+  .input-wrapper {
+    flex-grow: 1;
+    padding: 0 1rem 0 0;
+  }
+  .GetVideos#GetVideos {
+    width: auto;
+    flex-shrink: 0;
+  }
+  #media-list {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}

@@ -1,0 +1,515 @@
+/* public/css/tiktok.css */
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Poppins:wght@400;500&display=swap");
+
+/* =============== VARIABLES CSS ============== =*/
+/* Se asume que estas variables están disponibles globalmente o definidas aquí */
+:root {
+  /* ----- Variables de Diseño Generales ----- */
+  --header-height: 3.5rem;
+
+  /* ----- Colores Principales (tema claro por defecto) ----- */
+  --first-color: #8400ff;
+  --second-color: #00b7ff;
+  --gradient-color: linear-gradient(
+    75deg,
+    var(--second-color) 20%,
+    var(--first-color) 66%
+  );
+  --gradient-color2: linear-gradient(
+    75deg,
+    var(--first-color) 20%,
+    var(--second-color) 66%
+  );
+
+  /* Colores Base (Claro) */
+  --title-color: hsl(260, 80%, 18%);
+  --text-color: hsl(260, 24%, 32%);
+  --text-color-light: hsl(260, 16%, 65%);
+  --white-color: hsl(0, 0%, 100%);
+  --body-color: hsl(215, 55%, 96%);
+  --container-color: hsl(0, 0%, 100%);
+
+  /* Otros colores UI (Claro) */
+  --header--scroll: rgba(255, 255, 255, 0.4);
+  --menu-bg-color: rgba(255, 255, 255, 0.4);
+
+  /* --- Variables para Input/Botón --- */
+  --input-border-bottom: 2px solid var(--text-color-light);
+  --input-bg: transparent;
+  --button-bg: var(--gradient-color);
+  --button-color: var(--white-color);
+  --button-hover-bg: var(--gradient-color2);
+  --label-color: var(--text-color-light);
+  --label-active-color: var(--first-color);
+  --label-font-size: var(--small-font-size);
+  --label-top-position: -1.5rem;
+  --button-padding: 0.75rem 1.75rem;
+
+  /* ----- Tipografía ----- */
+  --body-font: "Poppins", sans-serif;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --font-medium: 500;
+
+  /* --- Variables para Nota Importante (Claro) --- */
+  --note-bg-light: hsl(50, 100%, 95%);
+  --note-border-light: hsl(45, 90%, 70%);
+  --note-icon-light: hsl(45, 70%, 45%);
+  --note-text-light: hsl(45, 30%, 30%);
+}
+
+/* ========== MODE DARK ========== */
+body.dark-mode {
+  /* ----- Colores Base (Oscuro) ----- */
+  --title-color: hsl(260, 64%, 85%);
+  --text-color: hsl(260, 20%, 65%);
+  --body-color: hsl(0, 0%, 8%);
+  --container-color: hsl(256, 12%, 18%);
+
+  /* Otros colores UI (Oscuro) */
+  --header--scroll: rgba(25, 25, 25, 0.4);
+  --menu-bg-color: rgba(25, 25, 25, 0.4);
+
+  /* --- Variables Input/Botón (Oscuro) --- */
+  --input-border-bottom: 2px solid var(--text-color);
+  --label-color: var(--text-color);
+  
+  /* --- Variables para Nota Importante (Oscuro) --- */
+  --note-bg-dark: hsla(48, 40%, 18%, 0.7);
+  --note-border-dark: hsl(48, 60%, 50%);
+  --note-icon-dark: hsl(48, 80%, 65%);
+  --note-text-dark: hsl(48, 80%, 85%);
+}
+
+/* ================================================ */
+/* ============= ESTILOS BASE Y COMUNES ============= */
+/* ================================================ */
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 969px;
+  margin: 0 auto;
+  padding: 1rem 1rem 3rem 1rem;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Animación Spinner (global si se usa en otros sitios) */
+.ri-loader-4-line.ri-spin {
+  animation: ri-spin 1s infinite linear;
+}
+@keyframes ri-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+/* ================================================ */
+/* ============= ESTILOS PÁGINA TIKTOK ============= */
+/* ================================================ */
+
+/* --- Input y Botón --- */
+#input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+  width: 100%;
+  max-width: 609px;
+  margin: 0 auto 2rem auto;
+  padding: 0;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+#url-input-tiktok {
+  width: 100%;
+  padding: 1rem 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: var(--input-border-bottom);
+  border-radius: 0;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  outline: none;
+  background-image: var(--gradient-color);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 0% 2px;
+  transition: background-size 0.3s ease, border-color 0.3s ease;
+}
+#url-input-tiktok:focus {
+  border-bottom-color: var(--first-color);
+  background-size: 100% 2px;
+}
+#url-input-tiktok::placeholder {
+  color: transparent;
+}
+
+/* Label Flotante (usando el 'for' original) */
+.input-wrapper label[for="url-input"] {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  color: var(--label-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+#url-input-tiktok:focus + label[for="url-input"],
+#url-input-tiktok:not(:placeholder-shown) + label[for="url-input"] {
+  font-size: var(--label-font-size);
+  transform: translateY(var(--label-top-position));
+  color: var(--label-active-color);
+}
+
+/* Input con Error */
+#url-input-tiktok.error-input {
+  border-bottom-color: hsl(0, 100%, 50%);
+  background-image: linear-gradient(
+    75deg,
+    hsl(0, 100%, 70%) 20%,
+    hsl(0, 100%, 50%) 66%
+  );
+  background-size: 100% 2px;
+}
+#url-input-tiktok.error-input + label[for="url-input"] {
+  color: hsl(0, 100%, 50%);
+}
+
+/* Botón Get Videos (TikTok) */
+.GetVideos#GetVideosTikTok {
+  padding: var(--button-padding);
+  width: 100%;
+  border: none;
+  border-radius: 50rem;
+  background: var(--button-bg);
+  color: var(--button-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: background 0.4s ease, transform 0.2s ease, box-shadow 0.3s ease,
+    opacity 0.3s ease;
+  white-space: nowrap;
+}
+.GetVideos#GetVideosTikTok:not(:disabled):hover {
+  background: var(--button-hover-bg);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.03);
+}
+.GetVideos#GetVideosTikTok:not(:disabled):active {
+  transform: scale(1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.GetVideos#GetVideosTikTok:disabled {
+  background: var(--button-bg);
+  opacity: 0.6;
+  cursor: not-allowed;
+  color: var(--button-color);
+}
+
+/* --- Contenedor de Errores --- */
+.error-message {
+  margin-top: 1rem;
+  display: none;
+  text-align: center;
+  padding: 1.5rem;
+  font-weight: var(--font-medium);
+  font-size: var(--h3-font-size);
+  background: linear-gradient(
+    90deg,
+    hsl(0, 100%, 50%),
+    hsl(0, 82%, 67%),
+    hsl(340, 88%, 61%),
+    hsl(0, 80%, 65%),
+    hsl(0, 100%, 50%)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: animatedErrorGradient 4s linear infinite;
+}
+.error-message.visible {
+  display: block;
+}
+@keyframes animatedErrorGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* --- Sección de Información TikTok --- */
+#tiktok-info-section {
+  max-width: 800px;
+  margin: 2.5rem auto;
+  padding: 1.8rem 2rem;
+  background-color: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  text-align: left;
+  color: var(--text-color);
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s linear 0.5s,
+    max-height 0.5s ease-out, margin 0.5s ease-out, padding 0.5s ease-out,
+    border-width 0.5s ease-out;
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  overflow: hidden;
+  max-height: 1000px;
+}
+body.dark-mode #tiktok-info-section {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#tiktok-info-section h2 {
+  font-size: var(--h2-font-size);
+  color: var(--title-color);
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+#tiktok-info-section p {
+  font-size: var(--normal-font-size);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+#tiktok-info-section p:not(:last-child):not(.important-note) {
+  margin-bottom: 0.8rem;
+}
+#tiktok-info-section strong {
+  display: block;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: var(--font-medium);
+  font-size: var(--h3-font-size);
+}
+#tiktok-info-section ol {
+  list-style: decimal inside;
+  padding-left: 0;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+#tiktok-info-section li {
+  font-size: var(--normal-font-size);
+  line-height: 1.7;
+  margin-bottom: 0.8rem;
+}
+#tiktok-info-section li strong {
+  display: inline;
+  margin: 0;
+  font-size: inherit;
+  font-weight: var(--font-medium);
+}
+#tiktok-info-section code {
+  background-color: rgba(0, 0, 0, 0.08);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--text-color);
+  word-break: break-all;
+}
+body.dark-mode #tiktok-info-section code {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--text-color);
+}
+
+#tiktok-info-section .important-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 1.2rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--note-border-light);
+  border-left-width: 5px;
+  border-left-color: var(--note-border-light);
+  background-color: var(--note-bg-light);
+  color: var(--note-text-light);
+  line-height: 1.65;
+  margin-left: 0;
+  margin-right: 0;
+}
+#tiktok-info-section .important-note i {
+  font-size: 1.4em;
+  color: var(--note-icon-light);
+  margin-top: 0.05em;
+  line-height: 1;
+  flex-shrink: 0;
+}
+body.dark-mode #tiktok-info-section .important-note {
+  background-color: var(--note-bg-dark);
+  border-color: var(--note-border-dark);
+  border-left-color: var(--note-border-dark);
+  color: var(--note-text-dark);
+}
+body.dark-mode #tiktok-info-section .important-note i {
+  color: var(--note-icon-dark);
+}
+
+/* Ocultar Sección Info */
+#tiktok-info-section.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+  visibility: hidden;
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s,
+    max-height 0.5s ease-in, margin 0.5s ease-in, padding 0.5s ease-in,
+    border-width 0.5s ease-in;
+  max-height: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-width: 0;
+}
+
+/* --- Contenedor de Resultados TikTok --- */
+#media-list.tiktok-media-list {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Tarjeta Resultado TikTok --- */
+.media-item.media-item-tiktok {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: var(--container-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  width: 100%;
+  margin: 0;
+}
+.media-item.media-item-tiktok:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+body.dark-mode .media-item.media-item-tiktok {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Miniatura TikTok */
+.tiktok-thumbnail {
+  width: 100%;
+  display: block;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  background-color: #111;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+body.dark-mode .tiktok-thumbnail {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Contenedor Botón Descarga TikTok */
+.tiktok-button-container {
+  display: flex;
+  justify-content: center;
+  padding: 12px 15px 15px 15px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--container-color);
+}
+
+/* Botón Descarga Específico TikTok */
+button.Download.tiktok-download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: var(--first-color);
+  color: var(--white-color);
+  border-radius: 50rem;
+  text-align: center;
+  font-size: 0.95em;
+  transition: background-color 0.3s, transform 0.1s ease, opacity 0.3s ease;
+  margin: 0;
+  width: auto;
+  border: none;
+  font-family: var(--body-font);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+button.Download.tiktok-download-button:not(:disabled):hover {
+  background-color: var(--second-color);
+  transform: translateY(-1px);
+}
+button.Download.tiktok-download-button:not(:disabled):active {
+  transform: scale(0.97);
+}
+button.Download.tiktok-download-button:disabled {
+  background-color: var(--first-color);
+  opacity: 0.6;
+  cursor: not-allowed;
+  color: var(--white-color);
+}
+button.Download.tiktok-download-button i {
+  font-size: 1.1em;
+  vertical-align: middle;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 400px) {
+  .container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  #tiktok-info-section {
+    padding: 1rem 1rem;
+  }
+  .media-item.media-item-tiktok {
+    max-width: 95%;
+  }
+}
+
+@media (min-width: 768px) {
+  #input-container {
+    flex-direction: row;
+    align-items: center;
+  }
+  .input-wrapper {
+    flex-grow: 1;
+    padding: 0 1rem 0 0;
+  }
+  .GetVideos#GetVideosTikTok {
+    width: auto;
+    flex-shrink: 0;
+  }
+}

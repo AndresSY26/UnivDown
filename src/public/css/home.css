@@ -1,0 +1,268 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Poppins:wght@400;500&display=swap");
+
+/* =============== VARIABLES CSS ============== =*/
+:root {
+  --header-height: 3.5rem;
+
+  /* ========== Colors ========== */
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: #8400ff;
+  --second-color: #00b7ff;
+  --gradient-color: linear-gradient(
+    75deg,
+    var(--second-color) 20%,
+    var(--first-color) 66%
+  );
+  --gradient-color2: linear-gradient(
+    75deg,
+    var(--first-color) 20%,
+    var(--second-color) 66%
+  );
+  --first-color-light: hsl(260, 88%, 92%);
+  --first-color-dark: hsl(0, 0%, 0%);
+  --title-color: hsl(260, 80%, 18%);
+  --text-color: hsl(260, 24%, 32%);
+  --text-color-light: hsl(260, 16%, 65%);
+  --white-color: hsl(0, 0%, 100%);
+  --body-color: hsl(215, 55%, 96%);
+  --container-color: hsl(0, 0%, 100%);
+  --select-page: hsl(276, 92%, 54%);
+  --check--icon: var(--first-color);
+
+  /* ========== Font and typography ========== */
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Poppins", sans-serif;
+  --second-font: "Lora", serif;
+  --biggest-font-size: 1.75rem;
+  --bigger-font-size: 2rem;
+  --big-font-size: 1.75rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --logo-font-size: 1.9rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /* ========== Font weight ========== */
+  --font-regular: 400;
+  --font-medium: 500;
+
+  /* ========== z index ========== */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/* ========== Responsive typography ========== */
+@media screen and (min-width: 1152px) {
+  :root {
+    --biggest-font-size: 3rem;
+    --bigger-font-size: 4rem;
+    --big-font-size: 3.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+/* ========== MODE DARK ========== */
+body.dark-mode {
+  --title-color: hsl(260, 64%, 85%);
+  --text-color: hsl(260, 20%, 65%);
+  --body-color: hsl(0, 0%, 8%);
+  --container-color: hsl(256, 12%, 18%);
+  /*  oscuro, pero no negro puro */
+  --select-page: hsl(197, 100%, 50%);
+  --check--icon: var(--second-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+.main-title {
+  font-size: var(--bigger-font-size);
+  /* Usa la variable para títulos grandes */
+  font-weight: var(--font-medium);
+  color: var(--title-color);
+  margin-bottom: 1rem;
+  text-align: center;
+  background-image: var(--gradient-color);
+  /* Degradado para el título principal */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.description {
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  text-align: center;
+  line-height: 1.5;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  justify-content: center;
+}
+
+/* Animación de entrada (al cargar la página) */
+.animate-on-load {
+  opacity: 0;
+  transform: translateY(50px);
+  /* Empieza un poco más abajo */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-load.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animación de aparición en scroll */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*Aplica a todo los elementos del platform*/
+.platform-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.platform-card.animate {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.main-title,
+.description,
+#input-container,
+#error-container,
+#media-list {
+  opacity: 0;
+  transform: translateY(50px);
+  /* Empieza un poco más abajo */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.main-title.animate,
+.description.animate,
+#input-container.animate,
+#error-container.animate,
+#media-list.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.platform-card {
+  background-color: var(--container-color);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.platform-card:hover {
+  transform: translateY(-9px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dark-mode .platform-card {
+  background-color: #212121;
+  border: 1px solid #333;
+}
+
+.platform-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background-image: var(--gradient-color);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.platform-title {
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-medium);
+  color: var(--title-color);
+  margin-bottom: 0.5rem;
+}
+
+.dark-mode .platform-title {
+  color: var(--white-color);
+}
+
+.platform-description {
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  line-height: 1.4;
+}
+
+.dark-mode .platform-description {
+  color: var(--text-color-light);
+}
+
+/* Estilos específicos para cada plataforma (opcional) */
+.platform-card.youtube .platform-icon {
+  background-image: linear-gradient(to right, #ff0000, #cc0000);
+}
+
+.platform-card.tiktok .platform-icon {
+  background-image: linear-gradient(to right, #00f2ea, #000000, #ff0050);
+}
+
+.platform-card.instagram .platform-icon {
+  background-image: linear-gradient(
+    45deg,
+    #405de6,
+    #5851db,
+    #833ab4,
+    #c13584,
+    #e1306c,
+    #fd1d1d
+  );
+}
+
+.platform-card.erome .platform-icon {
+  background-image: none;
+  color: #ff69b4;
+  transition: filter 0.3s ease;
+}
+
+/* Media Queries para adaptar el diseño a pantallas más pequeñas */
+@media (max-width: 768px) {
+  .platform-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #input-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

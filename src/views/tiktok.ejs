@@ -1,0 +1,109 @@
+<!-- views/tiktok.ejs -->
+<!-- ========= CSS ========-->
+<link rel="stylesheet" type="text/css" href="/css/tiktok.css" />
+
+<div class="container">
+  <div id="input-container">
+    <div class="input-wrapper">
+      <input type="text" id="url-input-tiktok" placeholder=" " required />
+      <label for="url-input" data-i18n="url_label">TikTok URL</label>
+    </div>
+    <button class="GetVideos" id="GetVideosTikTok">
+      Get videos
+    </button>
+  </div>
+
+  <!-- ===== Sección de Información Inicial para TikTok (Texto traducido) ===== -->
+  <div id="tiktok-info-section" class="info-section">
+    <h2 data-i18n="tiktok_info_title">
+      Easily Download TikTok Videos
+    </h2>
+    <p data-i18n="tiktok_info_intro">
+      Welcome! Use this tool to quickly save your favorite TikTok videos
+      without the watermark.
+    </p>
+    <strong data-i18n="tiktok_info_how_to_title">How does it work?</strong>
+    <ol>
+      <li data-i18n="tiktok_info_step1">
+        <strong>Paste the URL:</strong> Copy the full link (URL) of the TikTok
+        video you want to download (e.g.,
+        <code>https://www.tiktok.com/@electromysterysounds/video/7444240833773079863</code>) and paste it
+        into the field above.
+      </li>
+      <li data-i18n="tiktok_info_step2">
+        <strong>Get the Video:</strong> Click the "Get videos" button. Our
+        system will fetch the video information.
+      </li>
+      <li data-i18n="tiktok_info_step3">
+        <strong>Preview & Download:</strong> The video preview will appear shortly.
+        Click the "Download HD" button below the preview to save the video in
+        high definition to your device.
+      </li>
+    </ol>
+
+    <!-- Nota de Responsabilidad Adaptada (Texto traducido) -->
+    <p data-i18n="tiktok_info_note" class="important-note">
+        <i class="ri-information-line"></i> <!-- Icono -->
+        <span>
+            Please respect creators' rights and TikTok's terms of service when
+            downloading content. Use this tool responsibly for personal purposes only.
+        </span>
+    </p>
+
+    <p data-i18n="tiktok_info_enjoy">
+        Start downloading and enjoy your favorite TikToks offline!
+    </p>
+  </div>
+
+  <div id="error-container" class="error-message"></div>
+  <div id="media-list"></div>
+</div>
+
+<!-- ========= Modal para Imágenes ========= -->
+<div id="imageModal" class="modal">
+  <span class="modal-close-button" id="closeModal">×</span>
+  <div class="modal-content">
+    <img id="modalImage" src="" alt="Enlarged Erome Image">
+  </div>
+</div>
+
+<!-- ========= Modal para Videos ========= -->
+<div id="videoModal" class="modal">
+  <span class="modal-close-button" id="closeVideoModal">×</span>
+  <div class="modal-content video-modal-content" id="videoPlayerContainer">
+    <video id="modalVideo" preload="metadata">
+      <!-- Quitamos 'controls', preload="metadata" es bueno -->
+      Your browser does not support the video tag in the modal.
+    </video>
+
+    <!-- Contenedor para los controles personalizados -->
+    <div class="custom-video-controls" id="customControls">
+      <button class="control-button play-pause-button" id="playPauseBtn" aria-label="Play/Pause">
+        <i class="ri-play-fill"></i>
+      </button>
+      <div class="progress-bar-container">
+        <input type="range" id="progressBar" class="progress-bar" value="0" step="0.1" min="0">
+      </div>
+      <div class="time-display">
+        <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+      </div>
+
+      <!-- Contenedor de Volumen Modificado -->
+      <div class="volume-container" id="volumeContainer">
+          <!-- La barra ahora está dentro de su propio contenedor para posicionamiento -->
+          <div class="volume-slider-popup" id="volumeSliderContainer">
+             <input type="range" id="volumeBar" class="volume-bar" value="1" step="0.05" min="0" max="1">
+             <!-- orient="vertical" es semántico pero CSS lo hará visual -->
+          </div>
+          <button class="control-button volume-button" id="volumeBtn" aria-label="Mute/Unmute">
+            <i class="ri-volume-up-line"></i>
+          </button>
+      </div>
+      <!-- Fin Contenedor de Volumen Modificado -->
+
+      <button class="control-button fullscreen-button" id="fullscreenBtn" aria-label="Toggle Fullscreen">
+        <i class="ri-fullscreen-line"></i>
+      </button>
+    </div>
+  </div>
+</div>

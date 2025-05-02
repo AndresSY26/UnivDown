@@ -1,0 +1,650 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Poppins:wght@400;500&display=swap");
+
+/* =============== VARIABLES CSS ============== =*/
+:root {
+  --header-height: 3.5rem;
+
+  /* ========== Colors ========== */
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: #8400ff;
+  --second-color: #00b7ff;
+  --gradient-color: linear-gradient(
+    75deg,
+    var(--second-color) 20%,
+    var(--first-color) 66%
+  );
+  --gradient-color2: linear-gradient(
+    75deg,
+    var(--first-color) 20%,
+    var(--second-color) 66%
+  );
+  --first-color-light: hsl(260, 88%, 92%);
+  --first-color-dark: hsl(0, 0%, 0%);
+  --title-color: hsl(260, 80%, 18%);
+  --text-color: hsl(260, 24%, 32%);
+  --text-color-light: hsl(260, 16%, 65%);
+  --white-color: hsl(0, 0%, 100%);
+  --body-color: hsl(215, 55%, 96%);
+  --container-color: hsl(0, 0%, 100%);
+  --select-page: hsl(276, 92%, 54%);
+  --check--icon: var(--first-color);
+  --header--scroll: rgba(255, 255, 255, 0.4);
+  --menu-bg-color: rgba(255, 255, 255, 0.4);
+
+  /* ========== Font and typography ========== */
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Poppins", sans-serif;
+  --second-font: "Lora", serif;
+  --biggest-font-size: 1.75rem;
+  --bigger-font-size: 2rem;
+  --big-font-size: 1.75rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --logo-font-size: 1.9rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /* ========== Font weight ========== */
+  --font-regular: 400;
+  --font-medium: 500;
+
+  /* ========== z index ========== */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+
+  /*=== Estilos Input y Botón ===*/
+  --input-border-bottom: 2px solid var(--text-color-light);
+  --input-bg: transparent;
+  --button-bg: var(--gradient-color);
+  --button-color: var(--white-color);
+  --button-hover-bg: var(--gradient-color2);
+  --label-color: var(--text-color-light);
+  --label-active-color: var(--first-color);
+  --label-font-size: var(--small-font-size);
+  --label-top-position: -1.5rem;
+  --button-size: auto;
+  --button-padding: 0.75rem 1.75rem;
+}
+
+/* ========== Responsive typography ========== */
+@media screen and (min-width: 1152px) {
+  :root {
+    --biggest-font-size: 3rem;
+    --bigger-font-size: 4rem;
+    --big-font-size: 3.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+    --button-size: 3.5rem;
+  }
+}
+
+/* ========== MODE DARK ========== */
+body.dark-mode {
+  --title-color: hsl(260, 64%, 85%);
+  --text-color: hsl(260, 20%, 65%);
+  --body-color: hsl(0, 0%, 8%);
+  --container-color: hsl(256, 12%, 18%);
+  --select-page: hsl(197, 100%, 50%);
+  --check--icon: var(--second-color);
+  --header--scroll: rgba(25, 25, 25, 0.4);
+  --menu-bg-color: rgba(25, 25, 25, 0.4);
+
+  /*=== Estilos Input y Botón (Dark Mode) ===*/
+  --input-border-bottom: 2px solid var(--text-color);
+  --label-color: var(--text-color);
+}
+
+/* Contenedor de la lista de medios */
+#media-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.9rem;
+  margin-top: 2rem;
+  justify-content: center;
+  justify-items: center;
+  padding: 0;
+}
+
+/* Estilos para cada elemento de medios (video o imagen) */
+.media-item {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: var(--container-color);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 299px;
+  height: 399px;
+  justify-self: center;
+}
+
+/* Efecto hover */
+.media-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para imágenes y videos (responsive) */
+.media-item img,
+.media-item video {
+  width: 100%;
+  display: block;
+  flex-grow: 1;
+  object-fit: cover;
+  min-height: 0;
+}
+
+.media-item img,
+.media-item video {
+  cursor: pointer;
+}
+
+.media-item video:fullscreen {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+/* Webkit (Safari, Chrome) */
+.media-item video:-webkit-full-screen {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+/* Firefox */
+.media-item video:-moz-full-screen {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+/* IE/Edge (Legacy) */
+.media-item video:-ms-fullscreen {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+/* --- Estilos para el botón de descarga --- */
+.Download {
+  display: block;
+  padding: 0.6rem 1rem;
+  background-color: var(--first-color);
+  color: var(--white-color);
+  border-radius: 2.29rem;
+  text-align: center;
+  font-size: var(--small-font-size);
+  transition: background 0.3s, transform 0.2s ease;
+  margin: 0.8rem;
+  width: auto;
+  border: none;
+  font-family: var(--body-font);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+/*Color cuando hacemos hover*/
+.Download:hover {
+  background-color: var(--second-color);
+}
+
+/* =============== ESTILOS MODAL IMAGEN =============== */
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Clase para mostrar el modal */
+.modal.modal-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal-content {
+  position: relative;
+  margin: auto;
+  padding: 0;
+  width: auto;
+  max-width: 90vw;
+  max-height: 85vh;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.modal.modal-visible .modal-content {
+  transform: scale(1);
+}
+
+/* La imagen dentro del modal */
+#modalImage {
+  display: block;
+  max-width: 100%;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Botón de cierre */
+.modal-close-button {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+  line-height: 1;
+  z-index: 1010;
+}
+
+.modal-close-button:hover,
+.modal-close-button:focus {
+  color: #bbb;
+  text-decoration: none;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Estilo para el icono de Play sobre el video */
+.video-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.85);
+  pointer-events: none;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  transition: transform 0.2s ease;
+  z-index: 1;
+}
+
+/* Efecto hover sutil en el icono cuando se pasa sobre el item */
+.media-item.video-item:hover .video-play-icon {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Estilos específicos para el contenido del modal de video */
+#videoModal .modal-content {
+  background-color: #000;
+}
+
+#modalVideo {
+  display: block;
+  width: 100%;
+  max-height: 85vh;
+  height: auto;
+  object-fit: contain;
+}
+
+#videoPlayerContainer:fullscreen {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #000;
+}
+
+/* Versión Webkit (Chrome, Safari, Edge) */
+#videoPlayerContainer:-webkit-full-screen {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #000;
+}
+
+/* Versión Firefox */
+#videoPlayerContainer:-moz-full-screen {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #000;
+}
+
+/* Versión IE/Edge (Legacy) */
+#videoPlayerContainer:-ms-fullscreen {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #000;
+}
+
+/* El VIDEO DENTRO del contenedor en pantalla completa */
+#videoPlayerContainer:fullscreen #modalVideo {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  margin: auto;
+  display: block;
+}
+/* Versión Webkit */
+#videoPlayerContainer:-webkit-full-screen #modalVideo {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  margin: auto;
+  display: block;
+}
+/* Versión Firefox */
+#videoPlayerContainer:-moz-full-screen #modalVideo {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  margin: auto;
+  display: block;
+}
+/* Versión IE/Edge (Legacy) */
+#videoPlayerContainer:-ms-fullscreen #modalVideo {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  margin: auto;
+  display: block;
+}
+
+/* Estilo para el icono de Play sobre el video THUMBNAIL */
+.video-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  transition: transform 0.2s ease, color 0.2s ease;
+  z-index: 1;
+}
+.media-item.video-item:hover .video-play-icon {
+  transform: translate(-50%, -50%) scale(1.15);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* === CONTROLES PERSONALIZADOS VIDEO MODAL === */
+.custom-video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px 15px;
+  box-sizing: border-box;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  z-index: 2147483647;
+  pointer-events: auto;
+}
+
+/* Mostrar controles - Depende SOLAMENTE de la clase .visible añadida por JS */
+.custom-video-controls.visible:not(.force-hidden) {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Botones de control */
+.control-button {
+  background: none;
+  border: none;
+  color: rgba(201, 201, 201, 0.9);
+  font-size: 1.3rem;
+  padding: 6px;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.control-button:hover {
+  color: var(--second-color);
+  transform: scale(1.1);
+}
+.control-button i {
+  display: block;
+}
+
+/* Barra de Progreso */
+.progress-bar-container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  height: 24px;
+  cursor: pointer;
+  padding: 0 6px;
+  margin: 0 5px;
+}
+.progress-bar {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  background: linear-gradient(
+    to right,
+    var(--first-color) 0%,
+    var(--first-color) var(--progress-percentage, 0%),
+    rgba(255, 255, 255, 0.3) var(--progress-percentage, 0%),
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  transition: height 0.15s ease;
+}
+
+/* Hacer barra más gruesa al interactuar */
+.progress-bar-container:hover .progress-bar {
+  height: 8px;
+}
+
+/* Pulgar (Thumb) - Círculo que se arrastra */
+.progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: var(--white-color);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  opacity: 0;
+  transform: scale(0);
+  transition: background 0.2s ease, transform 0.15s ease, opacity 0.15s ease;
+}
+.progress-bar-container:hover .progress-bar::-webkit-slider-thumb,
+.progress-bar:focus::-webkit-slider-thumb {
+  opacity: 1;
+  transform: scale(1);
+  background: var(--second-color);
+}
+/* Pulgar (Thumb) para Firefox */
+.progress-bar::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  background: var(--white-color);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  opacity: 0;
+  transform: scale(0);
+  transition: background 0.2s ease, transform 0.15s ease, opacity 0.15s ease;
+}
+.progress-bar-container:hover .progress-bar::-moz-range-thumb,
+.progress-bar:focus::-moz-range-thumb {
+  opacity: 1;
+  transform: scale(1);
+  background: var(--second-color);
+}
+
+/* Indicador de Tiempo */
+.time-display {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: var(--small-font-size);
+  user-select: none;
+  min-width: 85px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Contenedor de Volumen */
+.volume-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+/* Popup Vertical de Volumen */
+.volume-slider-popup {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) scaleY(0.9);
+  transform-origin: bottom center;
+  width: 30px;
+  height: 120px;
+  background-color: rgba(40, 40, 40, 0.938);
+  border-radius: 15px;
+  padding: 15px 0px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; /* No interactuable cuando está oculto */
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
+  z-index: 5;
+}
+
+.volume-slider-popup.popup-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) scaleY(1);
+  pointer-events: auto;
+}
+
+/* Mostrar popup al hacer hover sobre el CONTENEDOR de volumen */
+.volume-container:hover .volume-slider-popup {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) scaleY(1);
+  pointer-events: auto;
+}
+
+/* Barra de Volumen Vertical */
+.volume-bar {
+  -webkit-appearance: slider-vertical;
+  appearance: slider-vertical;
+  writing-mode: bt-lr;
+  width: 6px;
+  height: 80px;
+  background: linear-gradient(
+    to top,
+    var(--first-color) 0%,
+    var(--first-color) var(--volume-percentage, 100%),
+    rgba(255, 255, 255, 0.3) var(--volume-percentage, 100%),
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+  margin: 0;
+  display: block;
+}
+/* Pulgar Volumen (Chrome/Edge/Safari) */
+.volume-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--white-color);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s ease;
+}
+.volume-bar:hover::-webkit-slider-thumb,
+.volume-bar:focus::-webkit-slider-thumb {
+  background: var(--second-color);
+}
+/* Pulgar Volumen (Firefox) */
+.volume-bar::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--white-color);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s ease;
+}
+.volume-bar:hover::-moz-range-thumb,
+.volume-bar:focus::-moz-range-thumb {
+  background: var(--second-color);
+}
+
+/* === Ocultar cursor cuando video corre Y mouse inactivo sobre el reproductor === */
+.video-modal-content.hide-cursor {
+  cursor: none;
+}
+
+/* Tablet (ajustar el botón)*/
+@media (min-width: 768px) {
+  #media-list {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}

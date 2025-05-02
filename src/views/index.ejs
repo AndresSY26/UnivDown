@@ -1,0 +1,52 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="title">UnivDown</title>
+    <!-- ========= Iconos ========-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css"/>
+    <!-- ========= Google ========-->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1828494545243150" crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3SZFMWYJJB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3SZFMWYJJB');
+    </script>
+    <!-- ========= Css y icono web ========-->
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="/css/media-modal.css" />
+    <link rel="icon" type="image/png" href="/img/logo.png" />
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main id="content">
+        <%- content %>
+    </main>
+
+    <%- include('partials/footer') %>
+
+    <!-- ========= Botón Scroll to Top ======== -->
+    <button id="scrollToTopBtn" aria-label="Scroll to top" title="Volver arriba">
+      <i class="ri-arrow-up-s-line"></i>
+    </button>
+
+    <!-- ========= Scripts funcionamiento de las paginas ======== -->
+    <script src="/js/media-ui.public.js" defer></script>
+    <script src="/js/erome.public.js" defer></script>
+    <script src="/js/tiktok.public.js" defer></script>
+    <script src="/js/youtube.public.js" defer></script>
+    <script src="/js/instagram.public.js" defer></script>
+
+    <script src="/js/pages/contact.public.js" defer></script>
+    <script src="/js/pages/faq.public.js" defer></script>
+
+    <!-- ========= Scripts principal ======== -->
+    <script type="module" src="/js/index.public.js"></script>
+  </body>
+</html>

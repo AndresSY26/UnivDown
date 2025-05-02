@@ -1,0 +1,11 @@
+# Dependencias de Node
+node_modules/
+
+# Carpeta de configuración de VSCode
+.vscode/
+
+# Carpeta IDX (asumiendo que es específica del entorno o generada)
+.idx/
+
+# Archivo de variables de entorno (¡no subir secretos!)
+.env

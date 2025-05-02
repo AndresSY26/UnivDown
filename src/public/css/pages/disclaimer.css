@@ -1,0 +1,289 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Poppins:wght@400;500&display=swap");
+:root {
+  --header-height: 3.5rem;
+  --first-color: #8400ff;
+  --second-color: #00b7ff;
+  --gradient-color: linear-gradient(
+    75deg,
+    var(--second-color) 20%,
+    var(--first-color) 66%
+  );
+  --gradient-color2: linear-gradient(
+    75deg,
+    var(--first-color) 20%,
+    var(--second-color) 66%
+  );
+  --first-color-light: hsl(260, 88%, 92%);
+  --first-color-dark: hsl(0, 0%, 0%);
+  --title-color: hsl(260, 80%, 18%);
+  --text-color: hsl(260, 24%, 32%);
+  --text-color-light: hsl(260, 16%, 65%);
+  --white-color: hsl(0, 0%, 100%);
+  --body-color: hsl(215, 55%, 96%);
+  --container-color: hsl(0, 0%, 100%);
+  --select-page: hsl(276, 92%, 54%);
+  --check--icon: var(--first-color);
+  --header--scroll: rgba(255, 255, 255, 0.4);
+  --menu-bg-color: rgba(255, 255, 255, 0.4);
+  --select-text: #8400ff;
+  --select-background: #e0e0e0;
+
+  --body-font: "Poppins", sans-serif;
+  --second-font: "Lora", serif;
+  --biggest-font-size: 1.75rem;
+  --bigger-font-size: 2rem;
+  --big-font-size: 1.75rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --logo-font-size: 1.9rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+  --font-regular: 400;
+  --font-medium: 500;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 1152px) {
+  :root {
+    --biggest-font-size: 3rem;
+    --bigger-font-size: 4rem;
+    --big-font-size: 3.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+body.dark-mode {
+  --title-color: hsl(260, 64%, 85%);
+  --text-color: hsl(260, 20%, 65%);
+  --body-color: hsl(0, 0%, 8%);
+  --container-color: hsl(256, 12%, 18%);
+  --select-page: hsl(197, 100%, 50%);
+  --check--icon: var(--second-color);
+  --header--scroll: rgba(25, 25, 25, 0.4);
+  --menu-bg-color: rgba(25, 25, 25, 0.4);
+  --select-text: #00b7ff;
+  --select-background: #242424;
+}
+
+/*=============== Disclaimer Page Styles ===============*/
+.disclaimer-page-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem 1.5rem;
+    background-color: var(--container-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUpDisclaimer 0.6s 0.1s ease-out forwards;
+  }
+  
+  @keyframes fadeInSlideUpDisclaimer {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .disclaimer-page-container .disclaimer-title {
+    text-align: center;
+    color: var(--title-color);
+    font-size: var(--bigger-font-size);
+    margin-bottom: 1rem;
+    font-family: var(--second-font);
+    font-weight: var(--font-medium);
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .disclaimer-page-container .disclaimer-intro {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: var(--normal-font-size);
+    color: var(--text-color-light);
+    line-height: 1.6;
+  }
+  
+  .disclaimer-page-container .disclaimer-section {
+    margin-bottom: 2rem;
+  }
+  
+  .disclaimer-page-container .disclaimer-section h2 {
+    color: var(--title-color);
+    font-size: var(--h2-font-size);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid hsla(0, 0%, 50%, 0.3); /* Línea divisoria más suave */
+    font-weight: var(--font-medium);
+  }
+  
+  .disclaimer-page-container .disclaimer-section p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  
+  /* --- Estilos para la lista de Limitación de Responsabilidad --- */
+  .disclaimer-page-container .liability-list {
+    list-style-type: none; /* Asegura no tener bullets por defecto */
+    /* Ajusta el padding izquierdo de la lista UL si prefieres manejar la indentación principal aquí */
+    /* Por ejemplo: padding-left: 1rem; */
+    /* Si no, mantenlo en 0 y maneja todo con el padding del li o el margen del span */
+    padding-left: 0;
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .disclaimer-page-container .liability-list li {
+    margin-bottom: 0.6rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    /* Añadimos un padding a la izquierda del LI para asegurar espacio general,
+       incluso si el marcador se posicionara absolutamente (aunque no lo haremos aquí) */
+    padding-left: 1em; /* Ajusta esto si es necesario */
+    position: relative; /* Necesario para algunos trucos de alineación si se usaran */
+  }
+  
+  /* --- Estilos específicos para el marcador (i), (ii), etc. --- */
+  .disclaimer-page-container .liability-list .liability-marker {
+    display: inline-block;  /* Permite controlar width y margin */
+    width: 2.5em;           /* Ancho fijo para que el texto siguiente se alinee bien */
+    margin-right: 0.5em;    /* Espacio entre el marcador y el texto */
+    text-align: left;       /* Asegura que el marcador esté alineado a la izquierda dentro de su espacio */
+    /* === Estilos visuales del marcador === */
+    font-weight: var(--font-medium); /* Peso medio para destacar un poco */
+    font-size: 1.1em;          /* Ligeramente más grande */
+    color: var(--first-color); /* Color principal (violeta) */
+    position: relative;        /* Ajuste fino de posición si es necesario */
+    /* top: -0.05em; */       /* Ejemplo: ligero ajuste vertical si la línea base no coincide */
+  }
+  
+  /* Ajustes para Modo Oscuro del Marcador */
+  body.dark-mode .disclaimer-page-container .liability-list .liability-marker {
+      color: var(--second-color); /* Color secundario (azul) en modo oscuro */
+  }
+  
+  /* --- Fin estilos lista de responsabilidad --- */
+  
+  /* Párrafos intro/outro de la sección de responsabilidad */
+  .disclaimer-page-container p[data-i18n="disclaimer_s3_intro"],
+  .disclaimer-page-container p[data-i18n="disclaimer_s3_outro"] {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  
+  /* Estilo General de Enlaces */
+  .disclaimer-page-container a {
+    color: var(--first-color);
+    text-decoration: none;
+    font-weight: var(--font-medium);
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+  }
+  
+  .disclaimer-page-container a:hover {
+    color: var(--second-color);
+    text-decoration: underline;
+  }
+  
+  /* Enlaces en Modo Oscuro */
+  body.dark-mode .disclaimer-page-container a {
+    color: var(--second-color);
+  }
+  
+  body.dark-mode .disclaimer-page-container a:hover {
+    color: var(--first-color);
+    text-decoration: underline;
+  }
+  
+  /* Pie de Página del Disclaimer */
+  .disclaimer-page-container .disclaimer-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid hsla(0, 0%, 50%, 0.3); /* Línea divisoria más suave */
+    text-align: center;
+    font-size: var(--small-font-size);
+    color: var(--text-color-light);
+  }
+  .disclaimer-page-container .disclaimer-footer p {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+  
+  /* ----- Responsive Adjustments ----- */
+  @media screen and (max-width: 768px) {
+    .disclaimer-page-container {
+      margin: 1.5rem auto;
+      padding: 1.5rem 1rem;
+    }
+  
+    .disclaimer-page-container .disclaimer-title {
+      font-size: var(--big-font-size);
+      margin-bottom: 1rem;
+    }
+     .disclaimer-page-container .disclaimer-intro {
+        margin-bottom: 2rem;
+     }
+  
+    .disclaimer-page-container .disclaimer-section h2 {
+      font-size: var(--h1-font-size);
+       margin-top: 2rem;
+      margin-bottom: 0.8rem;
+    }
+    /* Ajuste responsivo para el ancho del marcador si es necesario */
+    .disclaimer-page-container .liability-list .liability-marker {
+        width: 2.8em; /* Puede necesitar un poco más de espacio relativo */
+    }
+    /* Ajuste de padding del item para compensar */
+     .disclaimer-page-container .liability-list li {
+         padding-left: 0.8em;
+     }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .disclaimer-page-container {
+      margin: 1rem auto;
+      padding: 1.2rem 0.8rem;
+      border-radius: 6px;
+    }
+     .disclaimer-page-container .disclaimer-title {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+     }
+  
+     .disclaimer-page-container .disclaimer-intro {
+        margin-bottom: 1.5rem;
+     }
+  
+    .disclaimer-page-container .disclaimer-section h2 {
+      font-size: var(--h2-font-size);
+      margin-top: 1.5rem;
+    }
+    /* Ajuste responsivo para el marcador en pantallas pequeñas */
+    .disclaimer-page-container .liability-list .liability-marker {
+        font-size: 1.05em; /* Quizás un poco más pequeño */
+        width: 2.5em;      /* Ajusta el ancho */
+        margin-right: 0.4em; /* Menos espacio */
+    }
+     /* Ajuste de padding del item */
+     .disclaimer-page-container .liability-list li {
+         padding-left: 0.5em;
+     }
+  
+     .disclaimer-page-container .disclaimer-footer {
+          font-size: var(--smaller-font-size);
+      }
+  }

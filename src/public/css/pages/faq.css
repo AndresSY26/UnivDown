@@ -1,0 +1,315 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Poppins:wght@400;500&display=swap");
+:root {
+  --header-height: 3.5rem;
+  --first-color: #8400ff;
+  --second-color: #00b7ff;
+  --gradient-color: linear-gradient(
+    75deg,
+    var(--second-color) 20%,
+    var(--first-color) 66%
+  );
+  --gradient-color2: linear-gradient(
+    75deg,
+    var(--first-color) 20%,
+    var(--second-color) 66%
+  );
+  --first-color-light: hsl(260, 88%, 92%);
+  --first-color-dark: hsl(0, 0%, 0%);
+  --title-color: hsl(260, 80%, 18%);
+  --text-color: hsl(260, 24%, 32%);
+  --text-color-light: hsl(260, 16%, 65%);
+  --white-color: hsl(0, 0%, 100%);
+  --body-color: hsl(215, 55%, 96%);
+  --container-color: hsl(0, 0%, 100%);
+  --select-page: hsl(276, 92%, 54%);
+  --check--icon: var(--first-color);
+  --header--scroll: rgba(255, 255, 255, 0.4);
+  --menu-bg-color: rgba(255, 255, 255, 0.4);
+  --select-text: #8400ff;
+  --select-background: #e0e0e0;
+
+  --body-font: "Poppins", sans-serif;
+  --second-font: "Lora", serif;
+  --biggest-font-size: 1.75rem;
+  --bigger-font-size: 2rem;
+  --big-font-size: 1.75rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --logo-font-size: 1.9rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+  --font-regular: 400;
+  --font-medium: 500;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 1152px) {
+  :root {
+    --biggest-font-size: 3rem;
+    --bigger-font-size: 4rem;
+    --big-font-size: 3.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+body.dark-mode {
+  --title-color: hsl(260, 64%, 85%);
+  --text-color: hsl(260, 20%, 65%);
+  --body-color: hsl(0, 0%, 8%);
+  --container-color: hsl(256, 12%, 18%);
+  --select-page: hsl(197, 100%, 50%);
+  --check--icon: var(--second-color);
+  --header--scroll: rgba(25, 25, 25, 0.4);
+  --menu-bg-color: rgba(25, 25, 25, 0.4);
+  --select-text: #00b7ff;
+  --select-background: #242424;
+}
+
+/* --- ANIMATION KEYFRAMES --- */
+@keyframes fadeInSlideUpFAQ { /* Renombrada para claridad */
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*=============== FAQ PAGE STYLES ===============*/
+
+/* --- Contenedor Principal --- */
+.faq-page-container {
+  max-width: 850px;
+  margin: 3rem auto;
+  padding: 2.5rem 3rem;
+  background-color: var(--container-color);
+  border-radius: 10px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s ease;
+  color: var(--text-color);
+  opacity: 0;                      /* Start invisible */
+  transform: translateY(20px);     /* Start slightly lower */
+  animation: fadeInSlideUpFAQ 0.6s 0.1s ease-out forwards; /* Apply animation */
+}
+  
+  /* --- Título y Párrafo Introductorio --- */
+  .faq-title {
+    text-align: center;
+    color: var(--title-color);
+    font-size: var(--bigger-font-size);
+    margin-bottom: 1rem;
+    font-family: var(--second-font);
+    font-weight: 500;
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .faq-intro {
+    text-align: center;
+    color: var(--text-color-light);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    font-size: var(--h3-font-size);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* --- Lista de FAQs --- */
+  .faq-list {
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color, #e0e0e0); /* Separador inicial */
+  }
+  body.dark-mode .faq-list {
+      border-top-color: var(--border-color, #444);
+  }
+  
+  .faq-item {
+    border-bottom: 1px solid var(--border-color, #e0e0e0);
+  }
+  body.dark-mode .faq-item {
+      border-bottom-color: var(--border-color, #444);
+  }
+  
+  /* Encabezado H3 - Opcional si usas button directo */
+  .faq-question-header {
+      margin: 0; /* Quita margen del H3 si se usa */
+  }
+  
+  /* Botón de Pregunta (Principal elemento interactivo) */
+  .faq-question-button {
+    background: none;
+    border: none;
+    padding: 1.5rem 2.5rem 1.5rem 0; /* Espacio a la derecha para el icono */
+    width: 100%;
+    text-align: left;
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-medium);
+    color: var(--title-color);
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.2s ease;
+    font-family: var(--body-font); /* Asegura la fuente correcta */
+  }
+  
+  .faq-question-button:hover,
+  .faq-question-button:focus {
+    background-color: hsla(0, 0%, 0%, 0.03); /* Un ligero fondo en hover/focus */
+    outline: none; /* Quita outline por defecto, puedes añadir uno custom si quieres */
+  }
+  body.dark-mode .faq-question-button:hover,
+  body.dark-mode .faq-question-button:focus {
+      background-color: hsla(0, 0%, 100%, 0.05);
+  }
+  
+  
+  /* Iconos +/- */
+  .faq-question-button i {
+    position: absolute;
+    right: 0.5rem; /* Ajusta posición */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    /* Color base, podría ser gradiente */
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .faq-icon-minus {
+    opacity: 0;
+    transform: translateY(-50%) rotate(90deg);
+  }
+  
+  .faq-item.active .faq-icon-plus {
+    opacity: 0;
+    transform: translateY(-50%) rotate(-90deg);
+  }
+  
+  .faq-item.active .faq-icon-minus {
+    opacity: 1;
+    transform: translateY(-50%) rotate(0deg);
+  }
+  
+  
+  /* Respuesta */
+  .faq-answer {
+    padding: 0 1rem; /* Padding horizontal para la respuesta */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease-out,
+                padding-top 0.3s ease-out,
+                padding-bottom 0.3s ease-out;
+    color: var(--text-color);
+    font-size: var(--normal-font-size);
+    line-height: 1.8;
+    transform: translateZ(0); /* Hint para aceleración de hardware */
+  }
+  
+  .faq-item.active .faq-answer {
+    opacity: 1;
+    padding-top: 0.5rem;
+    padding-bottom: 1.8rem; /* Espacio debajo de la respuesta */
+    max-height: 1000px; /* Valor suficientemente grande */
+  }
+  
+  .faq-answer p, .faq-answer ul {
+      margin-bottom: 1rem;
+  }
+  .faq-answer ul {
+      padding-left: 1.5rem;
+      list-style: disc;
+  }
+  .faq-answer li {
+      margin-bottom: 0.5rem;
+  }
+  /* Enlaces dentro de respuestas */
+  .faq-answer a {
+    color: var(--first-color);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--first-color);
+    transition: color 0.2s ease, border-bottom-color 0.2s ease;
+  }
+  .faq-answer a:hover {
+    color: var(--second-color);
+    border-bottom-color: var(--second-color);
+  }
+  body.dark-mode .faq-answer a {
+    color: var(--second-color);
+    border-bottom-color: var(--second-color);
+  }
+  body.dark-mode .faq-answer a:hover {
+    color: var(--first-color);
+    border-bottom-color: var(--first-color);
+  }
+  
+  
+  /* --- Sección Contacto Final --- */
+  .faq-contact-link {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color, #e0e0e0);
+    color: var(--text-color-light);
+  }
+  body.dark-mode .faq-contact-link {
+    border-top-color: var(--border-color, #444);
+  }
+  
+  .faq-contact-link a {
+    color: var(--first-color);
+    font-weight: var(--font-medium);
+    text-decoration: none;
+  }
+  .faq-contact-link a:hover {
+    color: var(--second-color);
+    text-decoration: underline;
+  }
+  body.dark-mode .faq-contact-link a {
+      color: var(--second-color);
+  }
+  body.dark-mode .faq-contact-link a:hover {
+      color: var(--first-color);
+  }
+  
+  /* --- Responsividad --- */
+  @media screen and (max-width: 768px) {
+    .faq-page-container {
+      margin: 1.5rem;
+      padding: 2rem 1rem;
+    }
+    .faq-title {
+      font-size: var(--h1-font-size);
+    }
+    .faq-intro {
+      font-size: var(--normal-font-size);
+      margin-bottom: 2.5rem;
+    }
+    .faq-question-button {
+      font-size: var(--normal-font-size);
+      padding: 1.2rem 2rem 1.2rem 0;
+    }
+     .faq-question-button i {
+         font-size: 1.2rem;
+         right: 0.3rem;
+     }
+    .faq-answer {
+        font-size: var(--small-font-size);
+    }
+    .faq-answer ul {
+      padding-left: 1rem;
+    }
+  }

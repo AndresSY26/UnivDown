@@ -1,0 +1,270 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Poppins:wght@400;500&display=swap");
+:root {
+  --header-height: 3.5rem;
+  --first-color: #8400ff;
+  --second-color: #00b7ff;
+  --gradient-color: linear-gradient(
+    75deg,
+    var(--second-color) 20%,
+    var(--first-color) 66%
+  );
+  --gradient-color2: linear-gradient(
+    75deg,
+    var(--first-color) 20%,
+    var(--second-color) 66%
+  );
+  --first-color-light: hsl(260, 88%, 92%);
+  --first-color-dark: hsl(0, 0%, 0%);
+  --title-color: hsl(260, 80%, 18%);
+  --text-color: hsl(260, 24%, 32%);
+  --text-color-light: hsl(260, 16%, 65%);
+  --white-color: hsl(0, 0%, 100%);
+  --body-color: hsl(215, 55%, 96%);
+  --container-color: hsl(0, 0%, 100%);
+  --select-page: hsl(276, 92%, 54%);
+  --check--icon: var(--first-color);
+  --header--scroll: rgba(255, 255, 255, 0.4);
+  --menu-bg-color: rgba(255, 255, 255, 0.4);
+  --select-text: #8400ff;
+  --select-background: #e0e0e0;
+
+  --body-font: "Poppins", sans-serif;
+  --second-font: "Lora", serif;
+  --biggest-font-size: 1.75rem;
+  --bigger-font-size: 2rem;
+  --big-font-size: 1.75rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --logo-font-size: 1.9rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+  --font-regular: 400;
+  --font-medium: 500;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 1152px) {
+  :root {
+    --biggest-font-size: 3rem;
+    --bigger-font-size: 4rem;
+    --big-font-size: 3.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+body.dark-mode {
+  --title-color: hsl(260, 64%, 85%);
+  --text-color: hsl(260, 20%, 65%);
+  --body-color: hsl(0, 0%, 8%);
+  --container-color: hsl(256, 12%, 18%);
+  --select-page: hsl(197, 100%, 50%);
+  --check--icon: var(--second-color);
+  --header--scroll: rgba(25, 25, 25, 0.4);
+  --menu-bg-color: rgba(25, 25, 25, 0.4);
+  --select-text: #00b7ff;
+  --select-background: #242424;
+}
+
+/* --- ANIMATION KEYFRAMES --- */
+@keyframes fadeInSlideUpContact {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*=============== CONTACT PAGE STYLES ===============*/
+.about-page-container {
+  max-width: 750px;
+  margin: 3rem auto;
+  padding: 2rem 2.5rem;
+  background-color: var(--container-color);
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s ease;
+  opacity: 0; /* Start invisible */
+  transform: translateY(20px); /* Start slightly lower */
+  animation: fadeInSlideUpContact 0.6s 0.1s ease-out forwards; /* Apply animation */
+}
+
+/* --- Título y Párrafo Introductorio --- */
+.about-title {
+  text-align: center;
+  color: var(--title-color);
+  font-size: var(--bigger-font-size); /* Un poco más grande */
+  margin-bottom: 1rem;
+  font-family: var(--second-font); /* Usar la fuente secundaria si la tienes */
+  font-weight: 500;
+  /* Aplicar gradiente al título */
+  background: var(--gradient-color);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.about-intro {
+  text-align: center;
+  color: var(--text-color-light); /* Color más suave */
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  font-size: var(--h3-font-size); /* Tamaño ligeramente mayor */
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Secciones Generales --- */
+.about-section {
+  margin-bottom: 2.8rem;
+}
+
+/* --- Subtítulos de Sección --- */
+.about-subtitle {
+  font-size: var(--h2-font-size);
+  color: var(--title-color);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 3px solid;
+  /* Utiliza un gradiente para el borde inferior */
+  border-image-source: var(--gradient-color);
+  border-image-slice: 1;
+  border-image-width: 0 0 3px 0; /* Solo borde inferior */
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+  display: inline-block; /* Para que el borde no ocupe todo el ancho */
+  font-weight: var(--font-medium);
+}
+
+/* --- Párrafos dentro de Secciones --- */
+.about-section p {
+  line-height: 1.9; /* Un poco más de espacio vertical */
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+/* --- Listas (Features / Values) --- */
+.features-list,
+.values-list {
+  list-style: none;
+  padding-left: 0; /* Sin indentación por defecto */
+  margin-top: 1.5rem; /* Espacio sobre la lista */
+}
+
+.features-list li,
+.values-list li {
+  margin-bottom: 1rem;
+  padding-left: 2.2rem; /* Espacio para el icono */
+  position: relative;
+  line-height: 1.7;
+}
+
+/* Iconos en Lista de Características */
+.features-list li i {
+  position: absolute;
+  left: 0;
+  top: 4px; /* Ajustar alineación vertical */
+  font-size: 1.4rem; /* Tamaño del icono */
+  /* Gradiente para el icono */
+  background: var(--gradient-color);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
+}
+
+/* Estilo Lista de Valores (sin icono, solo texto) */
+.values-list li::before {
+  content: "✔"; /* O usa '•', '*', etc. */
+  position: absolute;
+  left: 0;
+  top: 0px;
+  font-size: 1.2rem;
+  /* Gradiente para el marcador */
+  background: var(--gradient-color2); /* Usa el gradiente inverso o el mismo */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
+.values-list li strong {
+  color: var(--title-color); /* Destaca el valor */
+  font-weight: var(--font-medium);
+}
+
+/* --- Enlaces dentro de las Secciones --- */
+.about-section a {
+  color: var(--first-color); /* Color principal para enlaces */
+  text-decoration: none;
+  font-weight: var(--font-medium);
+  border-bottom: 1px dashed var(--first-color); /* Subrayado sutil */
+  transition: color 0.2s ease, border-bottom-color 0.2s ease;
+}
+
+.about-section a:hover {
+  color: var(--second-color);
+  border-bottom-color: var(--second-color);
+}
+
+/* Adaptación Dark Mode para enlaces (si es necesario) */
+body.dark-mode .about-section a {
+  color: var(--second-color);
+  border-bottom-color: var(--second-color);
+}
+
+body.dark-mode .about-section a:hover {
+  color: var(--first-color);
+  border-bottom-color: var(--first-color);
+}
+
+/* --- Sección Final de Conexión --- */
+.connect-section {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color, #e0e0e0); /* Usa tu variable de borde */
+  text-align: center;
+}
+
+body.dark-mode .connect-section {
+  border-top-color: var(--border-color, #444);
+}
+
+/* --- Responsividad --- */
+@media screen and (max-width: 768px) {
+  .about-page-container {
+    margin: 1.5rem;
+    padding: 2rem 1.5rem;
+  }
+  .about-title {
+    font-size: var(--h1-font-size); /* Ajustar tamaño en móvil */
+  }
+  .about-intro {
+    font-size: var(--normal-font-size);
+    margin-bottom: 2rem;
+  }
+  .about-subtitle {
+    font-size: var(--h3-font-size);
+  }
+  .features-list li,
+  .values-list li {
+    padding-left: 1.8rem; /* Menos espacio para icono/marcador */
+    font-size: var(--small-font-size);
+  }
+  .features-list li i {
+    font-size: 1.2rem;
+    top: 3px;
+  }
+  .values-list li::before {
+    font-size: 1rem;
+    top: 2px;
+  }
+}

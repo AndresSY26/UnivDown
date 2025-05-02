@@ -1,0 +1,367 @@
+/* ---  Previous CSS rules (body, general selectors )--- */
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Poppins:wght@400;500&display=swap");
+:root {
+  --header-height: 3.5rem;
+  --first-color: #8400ff;
+  --second-color: #00b7ff;
+  --gradient-color: linear-gradient(
+    75deg,
+    var(--second-color) 20%,
+    var(--first-color) 66%
+  );
+  --gradient-color2: linear-gradient(
+    75deg,
+    var(--first-color) 20%,
+    var(--second-color) 66%
+  );
+  --first-color-light: hsl(260, 88%, 92%);
+  --first-color-dark: hsl(0, 0%, 0%);
+  --title-color: hsl(260, 80%, 18%);
+  --text-color: hsl(260, 24%, 32%);
+  --text-color-light: hsl(260, 16%, 65%);
+  --white-color: hsl(0, 0%, 100%);
+  --body-color: hsl(215, 55%, 96%);
+  --container-color: hsl(0, 0%, 100%);
+  --select-page: hsl(276, 92%, 54%);
+  --check--icon: var(--first-color);
+  --header--scroll: rgba(255, 255, 255, 0.4);
+  --menu-bg-color: rgba(255, 255, 255, 0.4);
+  --select-text: #8400ff;
+  --select-background: #e0e0e0;
+
+  --body-font: "Poppins", sans-serif;
+  --second-font: "Lora", serif;
+  --biggest-font-size: 1.75rem;
+  --bigger-font-size: 2rem;
+  --big-font-size: 1.75rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --logo-font-size: 1.9rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+  --font-regular: 400;
+  --font-medium: 500;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 1152px) {
+  :root {
+    --biggest-font-size: 3rem;
+    --bigger-font-size: 4rem;
+    --big-font-size: 3.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+body.dark-mode {
+  --title-color: hsl(260, 64%, 85%);
+  --text-color: hsl(260, 20%, 65%);
+  --body-color: hsl(0, 0%, 8%);
+  --container-color: hsl(256, 12%, 18%);
+  --select-page: hsl(197, 100%, 50%);
+  --check--icon: var(--second-color);
+  --header--scroll: rgba(25, 25, 25, 0.4);
+  --menu-bg-color: rgba(25, 25, 25, 0.4);
+  --select-text: #00b7ff;
+  --select-background: #242424;
+}
+
+/*=============== CONTACT PAGE STYLES ===============*/
+.contact-page-container {
+  max-width: 750px;
+  margin: 3rem auto;
+  padding: 2rem 2.5rem;
+  background-color: var(--container-color);
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInSlideUpContact 0.6s 0.1s ease-out forwards;
+}
+
+@keyframes fadeInSlideUpContact {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-title {
+  text-align: center;
+    color: var(--title-color);
+    font-size: var(--bigger-font-size);
+    margin-bottom: 1rem;
+    font-family: var(--second-font);
+    font-weight: 500;
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.contact-intro {
+  text-align: center;
+  color: var(--text-color);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  font-size: var(--normal-font-size);
+}
+
+/* Formulario General */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Contenedor del Input Animado */
+.input-container {
+  position: relative;
+}
+
+/* Estilo Base del Input y Textarea */
+.input-container .input-field {
+  width: 100%;
+  padding: 0.8rem 0 0.5rem 0;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--border-color);
+  outline: none;
+  color: var(--text-color);
+  font-size: var(--normal-font-size);
+  font-family: var(--body-font);
+  transition: border-bottom-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Estilo Base del Label */
+.input-container .input-label {
+  position: absolute;
+  left: 0;
+  top: 0.8rem;
+  color: var(--text-color-light);
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  pointer-events: none;
+  transition: transform 0.3s ease, font-size 0.3s ease, color 0.3s ease,
+    background 0.3s ease;
+  transform-origin: left top;
+  cursor: text;
+}
+
+/* Span para la Línea de Gradiente Animada (Solo para Inputs) */
+.input-container input ~ .input-underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: var(--gradient-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 2;
+}
+
+/* Input enfocado o con contenido */
+.input-container input.input-field:focus + .input-label,
+.input-container input.input-field:not(:placeholder-shown) + .input-label {
+  transform: translateY(-1.6rem) scale(0.85);
+  font-size: var(--small-font-size);
+  color: var(--first-color);
+}
+
+/* Input enfocado */
+.input-container input.input-field:focus {
+  border-bottom-color: transparent;
+}
+
+/* Mostrar línea gradiente al enfocar INPUT */
+.input-container input.input-field:focus ~ .input-underline {
+  transform: scaleX(1);
+}
+
+/* Placeholder Transparente */
+.input-container .input-field::placeholder {
+  color: transparent;
+  user-select: none;
+}
+
+/* --- ESTILOS Y ESTADOS ESPECÍFICOS TEXTAREA --- */
+.input-container textarea.input-field {
+  resize: none;
+  min-height: 130px;
+  line-height: 1.6;
+  padding: 1.2rem 0.2rem 0.5rem 0;
+}
+
+/* Textarea enfocado o con contenido (Solo animación del label) */
+.input-container textarea.input-field:focus + .input-label,
+.input-container textarea.input-field:not(:placeholder-shown) + .input-label {
+  transform: translateY(-1.6rem) scale(0.85);
+  font-size: var(--small-font-size);
+  color: var(--first-color);
+}
+
+/* Textarea enfocado (Efecto de borde inferior coloreado, SIN línea gradiente) */
+.input-container textarea.input-field:focus {
+  border-bottom-color: var(--first-color);
+}
+
+body.dark-mode .input-container textarea.input-field:focus {
+  border-bottom-color: var(--second-color);
+}
+
+/* Mensajes de estado (Sin cambios) */
+.form-status {
+  margin-top: 0.5rem;
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  text-align: center;
+  font-size: var(--small-font-size);
+  display: none;
+}
+/* ... (Reglas .success, .error, y sus dark-mode sin cambios) ... */
+.form-status.success {
+  background-color: #d1e7dd;
+  color: #0f5132;
+  border: 1px solid #badbcc;
+  display: block;
+}
+.form-status.error {
+  background-color: #f8d7da;
+  color: #842029;
+  border: 1px solid #f5c2c7;
+  display: block;
+}
+body.dark-mode .form-status.success {
+  background-color: hsl(145, 50%, 20%);
+  color: hsl(145, 50%, 80%);
+  border-color: hsl(145, 50%, 30%);
+}
+body.dark-mode .form-status.error {
+  background-color: hsl(0, 50%, 25%);
+  color: hsl(0, 50%, 85%);
+  border-color: hsl(0, 50%, 35%);
+}
+
+/* Botón de Envío (Estilos anteriores mantenidos) */
+.submit-button {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  padding: 0.9rem 1.8rem;
+  border-radius: 26px;
+  background: transparent;
+  color: var(--text-color);
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: color 0.4s ease-in-out, opacity 0.2s ease, transform 0.2s ease;
+  align-self: center;
+  margin-top: 1rem;
+  text-align: center;
+  display: inline-block;
+  line-height: normal;
+  border: 2px solid var(--first-color);
+  /* border-image y background-clip comentados o eliminados si usas ::before */
+}
+.submit-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-color);
+  z-index: -1;
+  border-radius: inherit;
+  transform: translateX(-101%);
+  transition: transform 0.4s ease-in-out;
+}
+.submit-button:hover {
+  color: var(--white-color);
+}
+.submit-button:hover::before {
+  transform: translateX(0);
+}
+.submit-button:active {
+  transform: scale(0.97);
+}
+.submit-button:disabled {
+  background: transparent;
+  color: var(--text-color-light);
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: var(--text-color-light);
+}
+.submit-button:disabled::before {
+  background: none;
+}
+
+/* Contacto Alternativo (Ajuste de variables si es necesario) */
+.alternative-contact {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+}
+.alternative-contact ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+.alternative-contact li {
+  margin-bottom: 0.3rem;
+}
+/* Definir variables de enlace del footer si no existen o usar colores existentes */
+:root {
+  --footer-link-color: var(--first-color);
+  --footer-link-hover-color: var(--second-color);
+}
+body.dark-mode {
+  --footer-link-color: var(--second-color);
+  --footer-link-hover-color: var(--first-color);
+}
+.alternative-contact a {
+  color: var(--footer-link-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.alternative-contact a:hover {
+  color: var(--footer-link-hover-color);
+  text-decoration: underline;
+}
+
+/* Responsividad (Ajuste de paddings/margins si es necesario) */
+@media screen and (max-width: 768px) {
+  .contact-page-container {
+    margin: 1.5rem;
+    padding: 1.5rem;
+  }
+  .contact-title {
+    font-size: var(--h2-font-size);
+  }
+  .contact-intro {
+    margin-bottom: 2rem;
+  }
+  .contact-form {
+    gap: 1.8rem;
+  } /* Ajustar gap en móvil */
+  .submit-button {
+    width: 100%;
+    align-self: stretch;
+  }
+}

@@ -1,0 +1,808 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Poppins:wght@400;500&display=swap");
+
+/* =============== VARIABLES CSS ============== =*/
+:root {
+  --header-height: 3.5rem;
+
+  /* ========== Colors ========== */
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: #8400ff;
+  --second-color: #00b7ff;
+  --gradient-color: linear-gradient(
+    75deg,
+    var(--second-color) 20%,
+    var(--first-color) 66%
+  );
+  --gradient-color2: linear-gradient(
+    75deg,
+    var(--first-color) 20%,
+    var(--second-color) 66%
+  );
+  --first-color-light: hsl(260, 88%, 92%);
+  --first-color-dark: hsl(0, 0%, 0%);
+  --title-color: hsl(260, 80%, 18%);
+  --text-color: hsl(260, 24%, 32%);
+  --text-color-light: hsl(260, 16%, 65%);
+  --white-color: hsl(0, 0%, 100%);
+  --body-color: hsl(215, 55%, 96%);
+  --container-color: hsl(0, 0%, 100%);
+  --select-page: hsl(276, 92%, 54%);
+  --check--icon: var(--first-color);
+  --header--scroll: rgba(255, 255, 255, 0.4);
+  --menu-bg-color: rgba(255, 255, 255, 0.4);
+
+  /* --- Variables para Nota Importante --- */
+  --note-bg-light: hsl(50, 100%, 95%);
+  --note-border-light: hsl(45, 90%, 70%);
+  --note-icon-light: hsl(45, 70%, 45%);
+  --note-text-light: hsl(45, 30%, 30%);
+
+  /* ========== Font and typography ========== */
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Poppins", sans-serif;
+  --second-font: "Lora", serif;
+  --biggest-font-size: 1.75rem;
+  --bigger-font-size: 2rem;
+  --big-font-size: 1.75rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --logo-font-size: 1.9rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /* ========== Font weight ========== */
+  --font-regular: 400;
+  --font-medium: 500;
+
+  /* ========== z index ========== */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+
+  /*=== Estilos Input y Botón ===*/
+  --input-border-bottom: 2px solid var(--text-color-light);
+  --input-bg: transparent;
+  --button-bg: var(--gradient-color);
+  --button-color: var(--white-color);
+  --button-hover-bg: var(--gradient-color2);
+  --label-color: var(--text-color-light);
+  --label-active-color: var(--first-color);
+  --label-font-size: var(--small-font-size);
+  --label-top-position: -1.5rem;
+  --button-size: auto;
+  --button-padding: 0.75rem 1.75rem;
+}
+
+/* ========== Responsive typography ========== */
+@media screen and (min-width: 1152px) {
+  :root {
+    --biggest-font-size: 3rem;
+    --bigger-font-size: 4rem;
+    --big-font-size: 3.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+    --button-size: 3.5rem;
+  }
+}
+
+/* ========== MODE DARK ========== */
+body.dark-mode {
+  --title-color: hsl(260, 64%, 85%);
+  --text-color: hsl(260, 20%, 65%);
+  --body-color: hsl(0, 0%, 8%);
+  --container-color: hsl(256, 12%, 18%);
+  --select-page: hsl(197, 100%, 50%);
+  --check--icon: var(--second-color);
+  --header--scroll: rgba(25, 25, 25, 0.4);
+  --menu-bg-color: rgba(25, 25, 25, 0.4);
+
+  /* --- Variables para Nota Importante (Dark) --- */
+  --note-bg-dark: hsla(48, 40%, 18%, 0.7);
+  --note-border-dark: hsl(48, 60%, 50%);
+  --note-icon-dark: hsl(48, 80%, 65%);
+  --note-text-dark: hsl(48, 80%, 85%);
+
+  /*=== Estilos Input y Botón (Dark Mode) ===*/
+  --input-border-bottom: 2px solid var(--text-color);
+  --label-color: var(--text-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+/* --- Estilos base (mobile-first) --- */
+.container {
+  max-width: 969px;
+  margin: 0 auto;
+  padding: 1rem 1rem 3rem 1rem;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+  width: 100%;
+  max-width: 609px;
+  margin: 0 auto 2rem auto;
+  padding: 0;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+#url-input-youtube {
+  width: 100%;
+  padding: 1rem 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: var(--input-border-bottom);
+  border-radius: 0;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  outline: none;
+  background-image: var(--gradient-color);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 0% 2px;
+  transition: background-size 0.3s ease, border-color 0.3s ease;
+}
+
+/* Efecto foco en el input */
+#url-input-youtube:focus {
+  border-bottom-color: var(--first-color);
+  background-size: 100% 2px;
+}
+
+#url-input-youtube::placeholder {
+  color: transparent;
+}
+
+/* Mueve la etiqueta cuando hay foco o contenido */
+.input-wrapper label {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  color: var(--label-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+#url-input-youtube:focus + label,
+#url-input-youtube:not(:placeholder-shown) + label {
+  font-size: var(--label-font-size);
+  transform: translateY(var(--label-top-position));
+  color: var(--label-active-color);
+}
+
+/* Botón "Get videos" */
+.GetVideos {
+  padding: var(--button-padding);
+  width: 100%;
+  border: none;
+  border-radius: 50rem;
+  background: var(--button-bg);
+  color: var(--button-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: background 0.4s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  white-space: nowrap;
+}
+
+.GetVideos:hover {
+  background: var(--button-hover-bg);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.03);
+}
+
+.GetVideos:active {
+  transform: scale(1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para el contenedor de errores */
+.error-message {
+  margin-top: 1rem;
+  display: none;
+  text-align: center;
+  padding: 1.5rem;
+  font-weight: var(--font-medium);
+  font-size: var(--h3-font-size);
+  background: linear-gradient(
+    90deg,
+    hsl(0, 100%, 50%),
+    hsl(0, 82%, 67%),
+    hsl(340, 88%, 61%),
+    hsl(0, 80%, 65%),
+    hsl(0, 100%, 50%)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: animatedErrorGradient 4s linear infinite;
+}
+
+/* Clase adicional para errores visibles (añadida por JS) */
+.error-message.visible {
+  display: block;
+}
+
+/* Define la animación del gradiente del error */
+@keyframes animatedErrorGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* Input con error */
+#url-input-youtube.error-input {
+  border-bottom-color: hsl(0, 100%, 50%);
+  background-image: linear-gradient(
+    75deg,
+    hsl(0, 100%, 70%) 20%,
+    hsl(0, 100%, 50%) 66%
+  ); /* Gradiente rojo */
+  background-size: 100% 2px;
+}
+#url-input-youtube.error-input + label {
+  color: hsl(0, 100%, 50%);
+}
+
+/* ==== Contenedor de la lista de medios (AHORA CON FLEXBOX PARA CENTRAR) ==== */
+#media-list {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-wrap: wrap;
+
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ===== Estilos para la Tarjeta de Resultado de YouTube ===== */
+.youtube-result-card {
+  background-color: var(--container-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+/* Borde específico para modo oscuro en la tarjeta */
+body.dark-mode .youtube-result-card {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Miniatura del video */
+.youtube-thumbnail {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  display: block;
+  background-color: #111;
+}
+
+/* Título del video */
+.youtube-title {
+  font-size: 1em;
+  color: var(--text-color);
+  font-weight: var(--font-medium);
+  margin: 0 5px 18px 5px;
+  text-align: center;
+  line-height: 1.4;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-height: 4.2em;
+}
+
+/* Contenedor individual para selector + botón */
+.youtube-quality-selector {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 18px;
+  gap: 10px;
+}
+/* Último selector no necesita tanto margen inferior */
+.youtube-quality-selector:last-of-type {
+  margin-bottom: 5px;
+}
+
+.youtube-quality-selector label {
+  font-size: 0.85em;
+  color: var(--text-color-light);
+  text-align: left;
+  margin-bottom: 0px;
+  padding-left: 5px;
+}
+
+/* Estilos para los <select> de calidad */
+.quality-select {
+  width: 100%;
+  padding: 9px 12px;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  font-size: 0.9em;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* Flecha personalizada (SVG incrustado) */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23555555" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px; /* Tamaño de la flecha */
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+/* Select en modo oscuro */
+body.dark-mode .quality-select {
+  background-color: #333;
+  color: #eee;
+  border: 1px solid #555;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23cccccc" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+}
+
+.quality-select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+body.dark-mode .quality-select:disabled {
+  background-color: #444;
+}
+
+/* Estilo General para Botones de Descarga DENTRO de la tarjeta */
+.download-button {
+  padding: 10px 15px;
+  background: var(--first-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 50rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.95em;
+  font-weight: var(--font-medium);
+  text-align: center;
+  transition: background 0.2s ease, transform 0.1s ease;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.download-button:hover {
+  background: var(--second-color);
+}
+
+.download-button:active {
+  transform: scale(0.98);
+}
+
+.download-button:disabled {
+  background: linear-gradient(90deg, #555, #444);
+  color: #aaa;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.download-button:disabled i {
+  opacity: 0.7;
+}
+
+/* (El .quality-label no parece usarse en el HTML generado, pero lo dejamos por si acaso) */
+.download-button .quality-label {
+  font-size: 0.8em;
+  opacity: 0.85;
+  margin-left: 4px;
+}
+
+/* Estilos para los iconos dentro de los botones de descarga */
+.download-button i {
+  font-size: 1.2em;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+/* Animación para icono de carga (revisado) */
+.ri-loader-4-line.ri-spin {
+  animation: ri-spin 1s infinite linear;
+}
+
+/* Separado de la clase para evitar conflictos si ri-spin se usa en otros sitios */
+@keyframes ri-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+/* ===== ESTILOS PARA LA SECCIÓN DE INFORMACIÓN INICIAL ===== */
+#youtube-info-section {
+  max-width: 800px;
+  margin: 2.5rem auto;
+  padding: 1.8rem 2rem;
+  background-color: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  text-align: left;
+  color: var(--text-color);
+  /* Transiciones */
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s linear 0.5s,
+    max-height 0.5s ease-out, margin 0.5s ease-out, padding 0.5s ease-out,
+    border-width 0.5s ease-out;
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  overflow: hidden;
+  max-height: 1000px;
+}
+
+/* Estilo modo oscuro para sección info */
+body.dark-mode #youtube-info-section {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#youtube-info-section h2 {
+  font-size: var(--h2-font-size);
+  color: var(--title-color);
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+#youtube-info-section p,
+#youtube-info-section li {
+  font-size: var(--normal-font-size);
+  line-height: 1.7;
+  margin-bottom: 0.8rem;
+}
+
+#youtube-info-section strong {
+  display: block;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: var(--font-medium);
+  font-size: var(--h3-font-size);
+}
+
+#youtube-info-section ol {
+  list-style: decimal inside;
+  padding-left: 0;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#youtube-info-section li strong {
+  display: inline;
+  margin: 0;
+  font-size: inherit;
+  font-weight: var(--font-medium);
+}
+
+#youtube-info-section code {
+  background-color: rgba(0, 0, 0, 0.08);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--text-color);
+}
+
+body.dark-mode #youtube-info-section code {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--text-color);
+}
+
+/* Clase para ocultar la sección de info (añadida por JS) */
+#youtube-info-section.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+  visibility: hidden;
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s,
+    max-height 0.5s ease-in, margin 0.5s ease-in, padding 0.5s ease-in,
+    border-width 0.5s ease-in;
+  max-height: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-width: 0;
+}
+
+#youtube-info-section .important-note {
+  display: flex; /* Usar Flexbox para alinear icono y texto */
+  align-items: flex-start; /* Alinear items arriba */
+  gap: 0.8rem; /* Espacio entre el icono y el texto */
+  padding: 1.2rem; /* Espacio interior más generoso */
+  margin-top: 2rem; /* Mayor separación arriba */
+  margin-bottom: 2rem; /* Mayor separación abajo */
+  border-radius: 8px; /* Esquinas redondeadas consistentes */
+  border: 1px solid var(--note-border-light); /* Borde sutil completo */
+  border-left-width: 5px; /* Borde izquierdo más grueso */
+  border-left-color: var(--note-border-light);
+  background-color: var(--note-bg-light);
+  color: var(--note-text-light); /* Color de texto específico */
+  line-height: 1.65; /* Ligeramente más interlineado */
+  /* Resetear margen por defecto del párrafo si interfiere */
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#youtube-info-section .important-note i {
+  font-size: 1.4em; /* Icono un poco más grande */
+  color: var(--note-icon-light);
+  margin-top: 0.05em; /* Ajuste vertical fino si es necesario */
+  line-height: 1; /* Para que el icono no afecte mucho la altura */
+  flex-shrink: 0; /* Evita que el icono se encoja */
+}
+
+/* Ajustes para el modo oscuro */
+body.dark-mode #youtube-info-section .important-note {
+  background-color: var(--note-bg-dark);
+  border-color: var(--note-border-dark);
+  border-left-color: var(--note-border-dark);
+  color: var(--note-text-dark);
+}
+
+body.dark-mode #youtube-info-section .important-note i {
+  color: var(--note-icon-dark);
+}
+
+/* ==== Media Queries para Responsividad ==== */
+/* Pantallas pequeñas (Ajustar container y tarjeta) */
+@media (max-width: 400px) {
+  .container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .youtube-result-card {
+    max-width: 95%;
+  }
+  #youtube-info-section {
+    padding: 1rem 1rem;
+  }
+}
+
+/* Tablet y Mayores (ajustar input/botón a fila) */
+@media (min-width: 768px) {
+  #input-container {
+    flex-direction: row;
+    align-items: center;
+  }
+  .input-wrapper {
+    flex-grow: 1;
+    padding-right: 1rem;
+  }
+  .GetVideos {
+    width: auto;
+    flex-shrink: 0;
+  }
+}
+
+/* Estilos Modales (asumiendo que ya funcionan correctamente) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: var(--z-fixed, 100);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.modal-content {
+  position: relative;
+  margin: auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 700px;
+  background-color: var(--body-color);
+  border-radius: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* Específico para el modal de video */
+.video-modal-content {
+  max-width: 900px;
+  width: 90%;
+  background-color: #000;
+  padding: 5px;
+}
+
+#modalImage,
+#modalVideo {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 4px;
+}
+#modalVideo {
+  border-radius: 0;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  color: #f1f1f1;
+  font-size: 35px;
+  font-weight: bold;
+  transition: color 0.3s;
+  cursor: pointer;
+  z-index: 110;
+}
+
+.modal-close-button:hover,
+.modal-close-button:focus {
+  color: #bbb;
+  text-decoration: none;
+}
+
+/* Estilos para controles personalizados de video (si los necesitas detallados) */
+.custom-video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+/* Muestra controles al hacer hover sobre el contenedor del video */
+.video-modal-content:hover .custom-video-controls,
+.video-modal-content .custom-video-controls.visible {
+  opacity: 1;
+}
+
+.control-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+}
+.progress-bar-container {
+  flex-grow: 1;
+  padding: 0 10px;
+}
+.progress-bar {
+  width: 100%;
+  cursor: pointer;
+}
+.time-display {
+  color: white;
+  font-size: 0.9rem;
+  padding: 0 10px;
+}
+.volume-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.volume-slider-popup {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 5px;
+  border-radius: 5px;
+  display: none;
+  margin-bottom: 8px;
+}
+.volume-container:hover .volume-slider-popup {
+  display: block;
+}
+.volume-bar {
+  writing-mode: bt-lr;
+  -webkit-appearance: slider-vertical;
+  width: 8px;
+  height: 70px;
+  cursor: pointer;
+}
+
+/* Estilos adicionales de controles (play/pause, icono volumen, etc.) */
+.play-pause-button i.ri-pause-line {
+  display: none;
+}
+
+.play-pause-button.playing i.ri-play-fill {
+  display: none;
+}
+
+.play-pause-button.playing i.ri-pause-line {
+  display: inline-block;
+}
+
+.volume-button i.ri-volume-mute-line {
+  display: none;
+}
+
+.volume-button.muted i.ri-volume-up-line {
+  display: none;
+}
+
+.volume-button.muted i.ri-volume-down-line {
+  display: none;
+}
+
+.volume-button.muted i.ri-volume-mute-line {
+  display: inline-block;
+}
+
+.volume-button.low i.ri-volume-up-line {
+  display: none;
+}
+
+.volume-button.low i.ri-volume-mute-line {
+  display: none;
+}
+
+.volume-button.low i.ri-volume-down-line {
+  display: inline-block;
+}
+
+.fullscreen-button i.ri-fullscreen-exit-line {
+  display: none;
+}
+
+.fullscreen-button.in-fullscreen i.ri-fullscreen-line {
+  display: none;
+}
+
+.fullscreen-button.in-fullscreen i.ri-fullscreen-exit-line {
+  display: inline-block;
+}

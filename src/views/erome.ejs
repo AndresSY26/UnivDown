@@ -1,0 +1,134 @@
+<!-- views/erome.ejs -->
+<!-- ========= CSS ========-->
+<link rel="stylesheet" type="text/css" href="/css/erome.css" />
+
+<div class="container">
+  <div id="input-container">
+    <div class="input-wrapper">
+      <input type="text" id="url-input" placeholder=" " required />
+      <label for="url-input" data-i18n="url_label">Erome URL</label>
+    </div>
+    <button class="GetVideos" id="GetVideos" data-i18n="GetVideos">
+      Get visuals
+    </button>
+  </div>
+
+  <!-- ===== Sección de Información Inicial para Erome ===== -->
+  <div id="erome-info-section" class="info-section">
+    <h2 data-i18n="erome_info_title">Download Erome Albums Easily</h2>
+    <p data-i18n="erome_info_intro">
+      Welcome! This tool helps you download full albums (videos and images) from
+      Erome links.
+    </p>
+    <strong data-i18n="erome_info_how_to_title">How does it work?</strong>
+    <ol>
+      <li data-i18n="erome_info_step1">
+        <strong>Paste the Album URL:</strong> Copy the URL of the Erome album
+        you want to download (e.g.,
+        <code>https://www.erome.com/a/AlbumID</code>) and paste it into the
+        field above.
+      </li>
+      <li data-i18n="erome_info_step2">
+        <strong>Get Visuals:</strong> Click the "Get visuals" button. Our system
+        will fetch the content of the album.
+      </li>
+      <li data-i18n="erome_info_step3">
+        <strong>Preview & Download:</strong> Thumbnails of the videos and images
+        will appear. Click the download button below each item you wish to save.
+        You can also click images/videos to preview them in a larger view.
+      </li>
+    </ol>
+    <!-- Nota de Responsabilidad -->
+    <p data-i18n="erome_info_note" class="important-note">
+      <i class="ri-information-line"></i>
+      <!-- Icon -->
+      <span>
+        Please respect copyright and the terms of service of Erome and the
+        original content creators. Ensure downloaded content is for personal,
+        lawful use only.
+      </span>
+    </p>
+    <p data-i18n="erome_info_enjoy">
+      Start downloading your favorite Erome albums!
+    </p>
+  </div>
+
+  <div id="error-container" class="error-message"></div>
+  <div id="media-list"></div>
+</div>
+
+<!-- ========= Modal para Imágenes ========= -->
+<div id="imageModal" class="modal">
+  <span class="modal-close-button" id="closeModal">×</span>
+  <div class="modal-content">
+    <img id="modalImage" src="" alt="Enlarged Erome Image" />
+  </div>
+</div>
+
+<!-- ========= Modal para Videos ========= -->
+<div id="videoModal" class="modal">
+  <span class="modal-close-button" id="closeVideoModal">×</span>
+  <div class="modal-content video-modal-content" id="videoPlayerContainer">
+    <video id="modalVideo" preload="metadata">
+      <!-- Quitamos 'controls', preload="metadata" es bueno -->
+      Your browser does not support the video tag in the modal.
+    </video>
+
+    <!-- Contenedor para los controles personalizados -->
+    <div class="custom-video-controls" id="customControls">
+      <button
+        class="control-button play-pause-button"
+        id="playPauseBtn"
+        aria-label="Play/Pause"
+      >
+        <i class="ri-play-fill"></i>
+      </button>
+      <div class="progress-bar-container">
+        <input
+          type="range"
+          id="progressBar"
+          class="progress-bar"
+          value="0"
+          step="0.1"
+          min="0"
+        />
+      </div>
+      <div class="time-display">
+        <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+      </div>
+
+      <!-- Contenedor de Volumen Modificado -->
+      <div class="volume-container" id="volumeContainer">
+        <!-- La barra ahora está dentro de su propio contenedor para posicionamiento -->
+        <div class="volume-slider-popup" id="volumeSliderContainer">
+          <input
+            type="range"
+            id="volumeBar"
+            class="volume-bar"
+            value="1"
+            step="0.05"
+            min="0"
+            max="1"
+          />
+          <!-- orient="vertical" es semántico pero CSS lo hará visual -->
+        </div>
+        <button
+          class="control-button volume-button"
+          id="volumeBtn"
+          aria-label="Mute/Unmute"
+        >
+          <i class="ri-volume-up-line"></i>
+        </button>
+      </div>
+      <!-- Fin Contenedor de Volumen Modificado -->
+
+      <button
+        class="control-button fullscreen-button"
+        id="fullscreenBtn"
+        aria-label="Toggle Fullscreen"
+      >
+        <i class="ri-fullscreen-line"></i>
+      </button>
+    </div>
+  </div>
+</div>
