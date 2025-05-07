@@ -60,7 +60,6 @@ export async function getVideoDetails(youtubeUrl) {
      }
 
     // --- Prepare Audio Formats (Focus on M4A/MP4, Map details) ---
-    // We prioritize m4a (often AAC codec) for the 'MP3' request.
     let potentialAudioFormats = formats
       .filter(format => format.hasAudio && !format.hasVideo && format.container === 'mp4')
       .map(format => ({
