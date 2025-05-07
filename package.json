@@ -18,7 +18,7 @@
   "author": "Your Name",
   "license": "ISC",
   "dependencies": {
-    "@distube/ytdl-core": "^4.16.9",
+    "@distube/ytdl-core": "^4.16.10",
     "@tobyg74/tiktok-api-dl": "^1.2.8",
     "cheerio": "^1.0.0",
     "dotenv": "^16.4.7",
