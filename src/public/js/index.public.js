@@ -25,6 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Media Query ---
   const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
+  // --- Banner Cookies ---
+  const banner = document.getElementById('cookieConsentBanner');
+  const acceptButton = document.getElementById('acceptCookieConsent');
+
   // --- Estado SPA ---
   let currentPage = window.location.pathname;
   let isLoading = false;
@@ -442,6 +446,16 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     console.warn("[UI] Botón Scroll-to-Top (#scrollToTopBtn) no encontrado.");
   }
+
+  // Revisar si el consentimiento ya fue dado
+  if (!localStorage.getItem('cookieConsentGiven')) {
+    banner.style.display = 'block';
+  }
+
+  acceptButton.addEventListener('click', function() {
+      localStorage.setItem('cookieConsentGiven', 'true'); // Usamos localStorage, pero podrías usar una cookie también
+      banner.style.display = 'none';
+  });
 
   // 12. Estado Inicial del Historial
   history.replaceState({ path: currentPage }, "", currentPage);
