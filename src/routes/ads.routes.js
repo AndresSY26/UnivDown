@@ -11,7 +11,7 @@ const router = express.Router();
 router.get('/ads.txt', (req, res) => {
   // Envía el archivo ads.txt que debería estar en la carpeta 'public'
   // Esta es una forma explícita de hacerlo.
-  const adsPath = path.join(__dirname, '..', 'public', 'ads.txt');
+  const adsPath = path.join(__dirname, '..', 'ads.txt');
   
   // Opcional: Si el contenido de ads.txt es corto y no cambia,
   // puedes enviarlo directamente como texto para mayor eficiencia.
